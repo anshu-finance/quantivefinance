@@ -8,23 +8,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header id="navbar">
         <div class="container nav-container">
-            <a href="index.html" class="logo fade-in-down" style="text-decoration: none;">
-    QUANTIVE<span class="dot">.</span>
-</a>
+            <a href="index.html" class="logo fade-in-down" style="text-decoration: none;" id="nav-logo">
+                QUANTIVE<span class="dot">.</span>
+            </a>
             <nav>
                 <ul class="nav-links fade-in-down delay-1">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projects.html" class="active">Projects</a></li>
-                    <li><a href="resume.html">Resume</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html" class="btn-nav">Contact</a></li>
+                    <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+                    <li><a href="projects.html" class="nav-link" id="nav-projects">Projects</a></li>
+                    <li><a href="resume.html" class="nav-link" id="nav-resume">Resume</a></li>
+                    <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
+                    <li><a href="contact.html" class="btn-nav" id="nav-contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-
     <section class="section-padding" style="padding-top: 150px;">
         <div class="container">
             <div class="section-header fade-in-up">
@@ -33,27 +33,27 @@
             </div>
 
             <div class="category-grid">
-    <a href="equity-reports.html" class="category-card">
-        <div class="icon-box"><span style="font-size: 2.5rem;">📈</span></div>
-        <h3>Equity Research Reports</h3>
-        <p>In-depth valuation models (DCF) and fundamental analysis on listed companies.</p>
-        <span class="card-link">View Models &rarr;</span>
-    </a>
+                <a href="equity-reports.html" class="category-card">
+                    <div class="icon-box"><span style="font-size: 2.5rem;">📈</span></div>
+                    <h3>Equity Research Reports</h3>
+                    <p>In-depth valuation models (DCF) and fundamental analysis on listed companies.</p>
+                    <span class="card-link">View Models &rarr;</span>
+                </a>
 
-    <a href="mf-analysis.html" class="category-card">
-        <div class="icon-box"><span style="font-size: 2.5rem;">💰</span></div>
-        <h3>Mutual Fund Analysis</h3>
-        <p>Performance review, Sharpe ratios, and holdings breakdown of leading funds.</p>
-        <span class="card-link">View Reviews &rarr;</span>
-    </a>
+                <a href="mf-analysis.html" class="category-card">
+                    <div class="icon-box"><span style="font-size: 2.5rem;">💰</span></div>
+                    <h3>Mutual Fund Analysis</h3>
+                    <p>Performance review, Sharpe ratios, and holdings breakdown of leading funds.</p>
+                    <span class="card-link">View Reviews &rarr;</span>
+                </a>
 
-    <a href="ipo-analysis.html" class="category-card">
-        <div class="icon-box"><span style="font-size: 2.5rem;">🚀</span></div>
-        <h3>IPO Analysis Framework</h3>
-        <p>Methodology for reviewing DRHPs, identifying risks, and valuation insights.</p>
-        <span class="card-link">View Insights &rarr;</span>
-    </a>
-</div>
+                <a href="ipo-analysis.html" class="category-card">
+                    <div class="icon-box"><span style="font-size: 2.5rem;">🚀</span></div>
+                    <h3>IPO Analysis Framework</h3>
+                    <p>Methodology for reviewing DRHPs, identifying risks, and valuation insights.</p>
+                    <span class="card-link">View Insights &rarr;</span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -63,6 +63,47 @@
             <div class="copyright">&copy; 2025 Quantive. Designed by Anshumaan Verma.</div>
         </div>
     </footer>
-    <script src="script.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const path = window.location.pathname;
+            const fileName = path.substring(path.lastIndexOf('/') + 1);
+
+            // Deactivate all links first
+            document.querySelectorAll('.nav-link, .btn-nav').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Determine which page is active and apply 'active' class for highlighting
+            if (fileName === 'index.html' || fileName === '') {
+                document.getElementById('nav-home').classList.add('active');
+            } else if (fileName === 'projects.html' || fileName === 'equity-reports.html' || fileName === 'mf-analysis.html' || fileName === 'ipo-analysis.html') {
+                document.getElementById('nav-projects').classList.add('active');
+            } else if (fileName === 'resume.html') {
+                document.getElementById('nav-resume').classList.add('active');
+            } else if (fileName === 'blog.html') {
+                document.getElementById('nav-blog').classList.add('active');
+            } else if (fileName === 'contact.html') {
+                document.getElementById('nav-contact').classList.add('active');
+            }
+        });
+
+        // Add the scroll reveal logic to the same script block
+        window.addEventListener('load', () => { reveal(); });
+        window.addEventListener('scroll', reveal);
+
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+    </script>
 </body>
 </html>
