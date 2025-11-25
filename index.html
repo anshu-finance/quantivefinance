@@ -11,21 +11,20 @@
 
     <header id="navbar">
         <div class="container nav-container">
-            <a href="index.html" class="logo fade-in-down" style="text-decoration: none;">
-    QUANTIVE<span class="dot">.</span>
-</a>
+            <a href="index.html" class="logo fade-in-down" style="text-decoration: none;" id="nav-logo">
+                QUANTIVE<span class="dot">.</span>
+            </a>
             <nav>
                 <ul class="nav-links fade-in-down delay-1">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="resume.html">Resume</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html" class="btn-nav">Contact</a></li>
+                    <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+                    <li><a href="projects.html" class="nav-link" id="nav-projects">Projects</a></li>
+                    <li><a href="resume.html" class="nav-link" id="nav-resume">Resume</a></li>
+                    <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
+                    <li><a href="contact.html" class="btn-nav" id="nav-contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-text">
@@ -42,9 +41,9 @@
             <div class="hero-image-container fade-in-up delay-2">
                 <img src="profile.jpg" alt="Anshumaan Verma" class="profile-hero float-animation">
                 <div class="experience-badge">
-    <span class="number">10+</span>
-    <span class="text">Reports Prepared</span>
-</div>
+                    <span class="number">10+</span>
+                    <span class="text">Reports Prepared</span>
+                </div>
             </div>
         </div>
     </section>
@@ -89,7 +88,7 @@
                 <div class="card-status">Deep Dive Report</div>
                 <div class="card-content">
                     <h3>Dabur India Ltd.</h3>
-                    <p class="project-desc">A detailed DCF valuation and multi-factor analysis demonstrating a significant premium to intrinsic value.</p>
+                    [cite_start]<p class="project-desc">A detailed DCF valuation and multi-factor analysis demonstrating a significant premium to intrinsic value[cite: 998, 1325].</p>
                     
                     <div class="metrics-grid">
                         <div class="metric">
@@ -134,7 +133,46 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const path = window.location.pathname;
+            const fileName = path.substring(path.lastIndexOf('/') + 1);
 
+            // Deactivate all links first
+            document.querySelectorAll('.nav-link, .btn-nav').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Determine which page is active and apply 'active' class for highlighting
+            if (fileName === 'index.html' || fileName === '') {
+                document.getElementById('nav-home').classList.add('active');
+            } else if (fileName === 'projects.html' || fileName === 'equity-reports.html' || fileName === 'mf-analysis.html' || fileName === 'ipo-analysis.html') {
+                document.getElementById('nav-projects').classList.add('active');
+            } else if (fileName === 'resume.html') {
+                document.getElementById('nav-resume').classList.add('active');
+            } else if (fileName === 'blog.html') {
+                document.getElementById('nav-blog').classList.add('active');
+            } else if (fileName === 'contact.html') {
+                document.getElementById('nav-contact').classList.add('active');
+            }
+        });
+
+        // Add the scroll reveal logic to the same script block
+        window.addEventListener('load', () => { reveal(); });
+        window.addEventListener('scroll', reveal);
+
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+    </script>
+</body>
 </html>
