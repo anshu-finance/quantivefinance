@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Value of Money | Quantive</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .blog-post {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .blog-post-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .blog-post-header .tagline {
+            color: var(--navy);
+            font-weight: 600;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+        .blog-post-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        .blog-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+        .blog-hero-image {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .blog-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #1a1a2e;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+        .blog-content h3 {
+            font-size: 1.3rem;
+            color: #1a1a2e;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        .blog-content ul, .blog-content ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        .blog-content li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 10px;
+        }
+        .blog-content img {
+            width: 100%;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e8f4f8 100%);
+            border-left: 4px solid var(--navy);
+            padding: 25px 30px;
+            border-radius: 0 10px 10px 0;
+            margin: 30px 0;
+        }
+        .highlight-box p {
+            margin: 0;
+            font-weight: 500;
+        }
+        .formula-box {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 25px 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        .example-box {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .example-box h4 {
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        .cta-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+            border-radius: 12px;
+            padding: 35px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .cta-box h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+        .back-link svg {
+            margin-right: 8px;
+        }
+        @media (max-width: 768px) {
+            .blog-post-header h1 {
+                font-size: 1.8rem;
+            }
+            .blog-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo fade-in-down" style="text-decoration: none;" id="nav-logo">
+                QUANTIVE<span class="dot">.</span>
+            </a>
+            <nav>
+                <ul class="nav-links fade-in-down delay-1">
+                    <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+                    <li><a href="projects.html" class="nav-link" id="nav-projects">Projects</a></li>
+                    <li><a href="resume.html" class="nav-link" id="nav-resume">Resume</a></li>
+                    <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
+                    <li><a href="contact.html" class="btn-nav" id="nav-contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="blog-post">
+        <a href="blog.html" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Blog
+        </a>
+
+        <article>
+            <header class="blog-post-header">
+                <span class="tagline">FINANCIAL LITERACY</span>
+                <h1>Time Value of Money: The Simplest Explanation Ever</h1>
+                <p class="blog-meta">By Anshumaan Verma • November 26, 2025 • 8 min read</p>
+            </header>
+
+            <img src="blog-images/tvm-hero.jpg" alt="Time Value of Money Concept" class="blog-hero-image">
+
+            <div class="blog-content">
+                <p>Imagine you have ₹1,000 today. Would you rather have ₹1,000 in your pocket right now, or receive the same ₹1,000 a year from now?</p>
+                
+                <p>If your instinct says "now," you've already understood the foundation of <strong>Time Value of Money (TVM)</strong>—a fundamental principle in finance that every smart person should know.</p>
+
+                <h2>What Is Time Value of Money? (The Real Deal)</h2>
+                
+                <p>Time Value of Money is a simple truth: <strong>Money you have today is worth more than the same amount of money you receive in the future.</strong></p>
+                
+                <p>Why? Because money in your hand today can work for you. You can use it, invest it, or save it to earn more. But money you get later? You lose out on all the opportunities you could have used it for today.</p>
+                
+                <img src="blog-images/tvm-banana.jpg" alt="Banana Today vs Tomorrow Analogy">
+                
+                <p>Think of it like this: If someone offers you a banana today or promises you a banana next week, which would you pick? The banana today, right? You can eat it now, and if you're still hungry next week, you could buy another one. But if you wait, you've lost a whole week of enjoying that banana—and it might even go bad.</p>
+                
+                <p>That's exactly how money works.</p>
+
+                <h2>The Three Big Reasons Money Today Is Better</h2>
+
+                <h3>1. Inflation (Things Get Expensive)</h3>
+                
+                <p>This is the most relatable reason money loses value over time.</p>
+                
+                <img src="blog-images/tvm-inflation.jpg" alt="Coffee Price Inflation Example">
+                
+                <p>Let's say your favourite coffee costs ₹100 today. Next year, due to inflation, that same coffee might cost ₹103. Your ₹100 buys you less tomorrow than it buys you today. In India, inflation has been averaging around 0.25% to 3% recently, though historically it averages higher.</p>
+                
+                <div class="example-box">
+                    <h4>💡 Real Example</h4>
+                    <p>If you earned ₹10,000 and didn't do anything with it for 5 years, you'd lose purchasing power. That ₹10,000 would buy you less than it would today.</p>
+                </div>
+
+                <h3>2. Opportunity Cost (Money Can Grow)</h3>
+                
+                <p>This is where things get exciting. If you have money today, you can put it to work—like in a savings account.</p>
+                
+                <img src="blog-images/tvm-opportunity.jpg" alt="Growing Bank Jar vs Waiting Jar">
+                
+                <p>In India, savings account interest rates currently range from 2.70% to 7.00% per year depending on your bank. Even putting ₹10,000 in a basic savings account earning 3% annually gives you ₹300 in your pocket after one year, without you doing anything.</p>
+                
+                <div class="highlight-box">
+                    <p>If someone asks you to wait a year for ₹10,000 instead of receiving it today, you're losing that ₹300 (plus potential earnings if you'd invested it better). That's your <strong>opportunity cost</strong>—the profit you missed out on.</p>
+                </div>
+
+                <h3>3. Risk (Life Happens)</h3>
+                
+                <img src="blog-images/tvm-risk.jpg" alt="Guaranteed Money Today vs Uncertain Future Money">
+                
+                <p>A promise to pay you money later is riskier than money in your hand today. The person promising might forget, move away, or simply run out of money. Today's ₹1,000 is guaranteed; tomorrow's is not.</p>
+
+                <h2>Let's See This in Action: Real Examples</h2>
+
+                <div class="example-box">
+                    <h4>Example 1: Your Birthday Gift</h4>
+                    <p>Your parents ask: "Should we give you ₹5,000 now or ₹5,000 on your birthday in 3 months?"</p>
+                    <p><strong>You pick now. Here's why:</strong></p>
+                    <ul>
+                        <li>Put ₹5,000 in a savings account earning 3.5% annually</li>
+                        <li>In 3 months, you'd have roughly ₹5,044</li>
+                        <li>Plus, you can enjoy the money sooner—maybe go to a movie, buy a book, or invest in something you want</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example 2: A Loan You Take</h4>
+                    <p>Let's say you borrow ₹10,000 from a friend for a school project, and they say, "You can pay me back anytime, no rush."</p>
+                    <p><strong>Should you pay them back immediately or wait 6 months?</strong></p>
+                    <p>You should pay them back ASAP. The longer you hold their money, the more it "costs" you in moral obligation and risk. Interest rates exist precisely because waiting to receive money is bad. If you borrow ₹10,000 at 5% interest annually, you owe ₹500 extra after a year.</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example 3: Starting to Save Early (The Superpower)</h4>
+                    <p>This is where Time Value of Money becomes life-changing.</p>
+                    <p><strong>Scenario A:</strong> You're 20 years old and start saving ₹1,000 per month in a savings account earning 4% annually. You do this for 10 years, then stop.</p>
+                    <p><strong>Scenario B:</strong> You start the same saving at age 30, save for 25 years, putting in way more total money.</p>
+                    <p><strong>Result?</strong> Scenario A (starting early but saving less) often ends up with MORE money because your early money had MORE TIME to grow. This is called <strong>compound growth</strong>—money makes money, which makes more money.</p>
+                </div>
+                
+                <img src="blog-images/tvm-comparison.jpg" alt="Two Saving Scenarios Comparison Chart">
+
+                <h2>The Formula Behind the Magic (Don't Worry, It's Simple)</h2>
+                
+                <img src="blog-images/tvm-compound.jpg" alt="Compound Interest Tree Illustration">
+                
+                <p>When money sits and earns interest or investment returns, it compounds. Here's the basic idea:</p>
+                
+                <div class="formula-box">
+                    Future Money = Today's Money × (1 + Growth Rate)<sup>Number of Years</sup>
+                </div>
+                
+                <div class="example-box">
+                    <h4>💡 Real Example</h4>
+                    <ul>
+                        <li><strong>Today:</strong> ₹10,000</li>
+                        <li><strong>Annual growth:</strong> 5%</li>
+                        <li><strong>Time period:</strong> 2 years</li>
+                    </ul>
+                    <p><strong>Future Money</strong> = ₹10,000 × (1.05)² = ₹10,000 × 1.1025 = <strong>₹11,025</strong></p>
+                    <p>That extra ₹1,025 came from nothing but TIME and growth. Magic? No—just math working in your favour.</p>
+                </div>
+
+                <h2>Why This Matters for Your Life Right Now</h2>
+
+                <h3>For Saving & Banking</h3>
+                <p>If someone offers you ₹10,000 today or
