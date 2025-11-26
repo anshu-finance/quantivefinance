@@ -1,7 +1,7 @@
 /* --- RESET & VARIABLES --- */
 :root {
     --bg-color: #f8fafc;       
-    --card-bg: rgba(255, 255, 255, 0.85); /* Slightly transparent for glass effect */       
+    --card-bg: rgba(255, 255, 255, 0.75); /* Clean glass transparency */       
     --navy: #0f172a;           
     --primary-blue: #2563eb;   
     --secondary-blue: #1e40af; 
@@ -35,7 +35,7 @@ body::before {
     background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(255,255,255,0) 70%);
     border-radius: 50%;
     filter: blur(60px);
-    z-index: -1; /* Puts it behind everything */
+    z-index: -1; 
     animation: drift-1 20s infinite alternate ease-in-out;
 }
 
@@ -50,11 +50,10 @@ body::after {
     background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(255,255,255,0) 70%);
     border-radius: 50%;
     filter: blur(80px);
-    z-index: -1; /* Puts it behind everything */
+    z-index: -1; 
     animation: drift-2 25s infinite alternate-reverse ease-in-out;
 }
 
-/* Keyframes for the background blobs */
 @keyframes drift-1 {
     0% { transform: translate(0, 0) scale(1); }
     50% { transform: translate(20px, 100px) scale(1.1); }
@@ -90,7 +89,6 @@ ul { list-style: none; }
     background-color: var(--primary-blue);
     color: #ffffff;
     box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
-    /* Subtle pulse for CTA */
     animation: pulse-blue 3s infinite;
 }
 
@@ -126,7 +124,6 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    /* Increased transparency for background effect to show through */
     background: rgba(255, 255, 255, 0.7); 
     backdrop-filter: blur(15px);
     z-index: 1000;
@@ -170,6 +167,7 @@ header {
 }
 
 .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.nav-links a.active { color: var(--primary-blue); font-weight: 600; }
 
 .btn-nav {
     border: 1px solid var(--primary-blue);
@@ -178,7 +176,7 @@ header {
     color: var(--primary-blue) !important;
 }
 
-.btn-nav:hover { background-color: var(--primary-blue); color: white !important; }
+.btn-nav:hover, .btn-nav.active { background-color: var(--primary-blue); color: white !important; }
 .btn-nav::after { display: none; }
 
 /* --- HERO SECTION --- */
@@ -188,7 +186,6 @@ header {
     align-items: center;
     position: relative;
     padding-top: 80px;
-    /* Removed gradient to let animated body background show */
     background: transparent; 
 }
 
@@ -225,181 +222,4 @@ header {
     width: 350px; height: 450px; object-fit: cover;
     border-radius: 20px;
     box-shadow: 20px 20px 0px rgba(37, 99, 235, 0.1);
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
-/* Cards have higher transparency now to blend with BG */
-.about-card, .project-card, .category-card, .credentials-box {
-    background-color: var(--card-bg);
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: var(--shadow-soft);
-    transition: all 0.4s ease;
-    border: 1px solid rgba(255,255,255,0.5);
-    backdrop-filter: blur(5px);
-    /* Gentle Float */
-    animation: float-card 6s ease-in-out infinite;
-}
-
-.project-card:nth-child(even) { animation-delay: 1s; }
-.category-card:nth-child(even) { animation-delay: 1.5s; }
-
-@keyframes float-card {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0px); }
-}
-
-.project-card:hover, .category-card:hover, .about-card:hover {
-    transform: translateY(-12px) scale(1.01);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--primary-blue);
-    animation-play-state: paused;
-}
-
-.project-card { display: flex; flex-direction: column; position: relative; margin-bottom: 30px; }
-
-.about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 50px; align-items: center; }
-.about-img { width: 100%; border-radius: 12px; box-shadow: var(--shadow-soft); object-fit: cover; }
-
-/* --- TYPOGRAPHY & METRICS --- */
-.section-header { display: flex; align-items: center; margin-bottom: 50px; }
-.section-title { font-size: 2rem; color: var(--navy); font-family: 'Playfair Display', serif; margin-right: 20px; }
-.line { height: 2px; background-color: var(--primary-blue); flex-grow: 1; max-width: 100px; opacity: 0.5; }
-
-.card-status {
-    position: absolute; top: 20px; right: 20px;
-    background: rgba(37, 99, 235, 0.1); color: var(--primary-blue);
-    padding: 6px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
-}
-
-.metrics-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
-    margin-top: 30px; padding-top: 25px; border-top: 1px solid #e2e8f0;
-}
-
-.metric .label { display: block; font-size: 0.75rem; font-family: monospace; color: var(--text-gray); text-transform: uppercase; margin-bottom: 5px;}
-.metric .value { color: var(--navy); font-weight: 700; font-size: 1.25rem; }
-.highlight-red { color: #ef4444; }
-
-/* --- PROJECT HUB GRID --- */
-.category-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; margin-top: 50px;
-}
-
-.icon-box {
-    margin: 0 auto; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;
-    border-radius: 50%; background: rgba(37, 99, 235, 0.05); margin-bottom: 20px;
-}
-
-/* --- PAGE HEADERS (Sub-pages) --- */
-.page-header {
-    text-align: center;
-    background: transparent;
-    position: relative;
-    z-index: 1;
-}
-.page-title { font-size: 3rem; color: var(--navy); font-family: 'Playfair Display', serif; margin-bottom: 15px; }
-
-/* --- FOOTER --- */
-footer { 
-    text-align: center; padding: 60px 0; 
-    background-color: rgba(255,255,255,0.6); 
-    backdrop-filter: blur(5px);
-    border-top: 1px solid #e2e8f0; margin-top: 50px;
-}
-.footer-brand h2 { color: var(--navy); font-family: 'Playfair Display', serif; }
-.social-links { margin: 25px 0; }
-.social-links a { color: var(--text-gray); margin: 0 15px; font-size: 0.95rem; }
-.social-links a:hover { color: var(--primary-blue); }
-
-/* --- ANIMATION CLASSES --- */
-.fade-in-down { opacity: 0; transform: translateY(-20px); animation: fadeInDown 0.8s forwards; }
-@keyframes fadeInDown { to { opacity: 1; transform: translateY(0); } }
-
-.fade-in-up { opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s forwards; }
-@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
-
-.float-animation { animation: float 6s ease-in-out infinite; }
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
-
-.experience-badge {
-    position: absolute; bottom: -20px; left: -20px;
-    background: white; padding: 15px 25px; border-radius: 12px;
-    box-shadow: var(--shadow-soft); display: flex; flexDirection: column; alignItems: center;
-    border-left: 4px solid var(--primary-blue);
-    animation: float 4s ease-in-out infinite; min-width: 150px;
-}
-.experience-badge .number { font-weight: 800; font-size: 1.1rem; color: var(--navy); }
-.experience-badge .text { font-size: 0.8rem; color: var(--text-gray); text-transform: uppercase; }
-
-.reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
-.reveal.active { opacity: 1; transform: translateY(0); }
-
-/* --- MOBILE RESPONSIVE FIX --- */
-@media (max-width: 900px) {
-    /* 1. Fix the Navigation Menu */
-    header {
-        height: auto; /* Allow header to expand */
-        padding: 15px 0;
-        background: rgba(255, 255, 255, 0.95); /* More solid on mobile */
-    }
-
-    .nav-container {
-        flex-direction: column; /* Stack Logo on top */
-        gap: 15px;
-    }
-
-    .nav-links {
-        display: flex; /* SHOW the links! */
-        flex-wrap: wrap; /* Allow wrapping */
-        justify-content: center; /* Center them */
-        gap: 15px;
-        width: 100%;
-    }
-
-    .nav-links a {
-        font-size: 0.85rem; 
-        color: var(--navy);
-    }
-
-    .btn-nav {
-        margin-top: 5px;
-    }
-
-    /* 2. Fix Contact Card Stacking (CRITICAL FIX) */
-    .about-grid { 
-        /* Reset to stack vertically for mobile (the grid columns will break the horizontal layout) */
-        grid-template-columns: 1fr !important;
-        gap: 20px; 
-        padding: 0 10px;
-    }
-    
-    /* 3. General Layout Stacking */
-    .hero-grid, .metrics-grid { 
-        grid-template-columns: 1fr; 
-        text-align: center; 
-    }
-
-    /* 4. Fix Images */
-    .hero-image-container, .about-visual { 
-        margin-top: 40px; 
-        display: flex; 
-        justify-content: center; 
-    }
-
-    /* 5. Adjust Typography */
-    .hero h1 { font-size: 2.5rem; }
-    .hero { padding-top: 140px; } /* More space for the stacked menu */
-    .page-header { padding-top: 160px !important; }
-}
-
+    border: 1px
