@@ -1,6 +1,19 @@
 const projectData = [
     // --- EQUITY REPORTS ---
     {
+        category: "ipo",
+        title: "Shreeji Global FMCG Ltd.",
+        status: "SME IPO | FMCG Sector",
+        desc: "Emerging FMCG player with 51% revenue CAGR. Growth-oriented SME issue suitable for aggressive investors seeking early exposure.",
+        pdf: "Shreeji_Global_IPO_Report.pdf",
+        metrics: [
+            { label: "Issue Size", value: "₹85 Cr" },
+            { label: "Rev CAGR", value: "51%" },
+            { label: "ROE (FY24)", value: "31.4%" },
+            { label: "Verdict", value: "Subscribe Selectively", highlight: true }
+        ]
+    },
+    {
         category: "equity",
         title: "Dabur India Ltd.",
         status: "DCF & Relative Pricing",
@@ -68,21 +81,7 @@ const projectData = [
         ]
     },
 
-    // --- IPO REPORTS ---
-    {
-        category: "ipo",
-        title: "Shreeji Global FMCG Ltd.",
-        status: "SME IPO | FMCG Sector",
-        desc: "Emerging FMCG player with 51% revenue CAGR. Growth-oriented SME issue suitable for aggressive investors seeking early exposure.",
-        pdf: "Shreeji_Global_IPO_Report.pdf",
-        metrics: [
-            { label: "Issue Size", value: "₹85 Cr" },
-            { label: "Rev CAGR", value: "51%" },
-            { label: "ROE (FY24)", value: "31.4%" },
-            { label: "Verdict", value: "Subscribe Selectively", highlight: true }
-        ]
-    },
-    {
+    // --- IPO REPORTS ---{
         category: "ipo",
         title: "IPO Analysis Framework",
         status: "Methodology",
