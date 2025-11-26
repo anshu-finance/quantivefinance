@@ -25,11 +25,12 @@
             </nav>
         </div>
     </header>
+
     <section class="page-header reveal" style="padding-top: 150px; padding-bottom: 50px;">
         <div class="container">
             <span class="tagline">FINANCIAL LITERACY</span>
             <h1 class="page-title">The Finance Breakdown</h1>
-            <p class="page-subtitle">Simplifying complex financial concepts for everyone. (Coming Soon)</p>
+            <p class="subtitle">Simplifying complex financial concepts for everyone.</p>
         </div>
     </section>
 
@@ -48,53 +49,11 @@
 
     <footer>
         <div class="container footer-content">
-            <div class="footer-brand">
-                <h2>QUANTIVE.</h2>
-            </div>
+            <div class="footer-brand"><h2>QUANTIVE.</h2></div>
             <div class="copyright">&copy; 2025 Quantive. Designed by Anshumaan Verma.</div>
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const path = window.location.pathname;
-            const fileName = path.substring(path.lastIndexOf('/') + 1);
-
-            // Deactivate all links first
-            document.querySelectorAll('.nav-link, .btn-nav').forEach(link => {
-                link.classList.remove('active');
-            });
-
-            // Determine which page is active and apply 'active' class for highlighting
-            if (fileName === 'index.html' || fileName === '') {
-                document.getElementById('nav-home').classList.add('active');
-            } else if (fileName === 'projects.html' || fileName === 'equity-reports.html' || fileName === 'mf-analysis.html' || fileName === 'ipo-analysis.html') {
-                document.getElementById('nav-projects').classList.add('active');
-            } else if (fileName === 'resume.html') {
-                document.getElementById('nav-resume').classList.add('active');
-            } else if (fileName === 'blog.html') {
-                document.getElementById('nav-blog').classList.add('active');
-            } else if (fileName === 'contact.html') {
-                document.getElementById('nav-contact').classList.add('active');
-            }
-        });
-
-        // Add the scroll reveal logic to the same script block
-        window.addEventListener('load', () => { reveal(); });
-        window.addEventListener('scroll', reveal);
-
-        function reveal() {
-            var reveals = document.querySelectorAll('.reveal');
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add('active');
-                }
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
