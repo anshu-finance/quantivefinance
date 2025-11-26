@@ -1,5 +1,20 @@
 const projectData = [
-    // --- IPO REPORT: SHREEJI ---
+    // --- 1. IPO FRAMEWORK (NOW AT THE TOP) ---
+    {
+        category: "ipo",
+        title: "IPO Analysis Framework",
+        status: "Methodology",
+        desc: "Standard framework for analyzing DRHP, Grey Market trends, and Financial health.",
+        pdf: "#", 
+        metrics: [
+            { label: "Focus", value: "Litigation" },
+            { label: "Check", value: "Promoter Hold" },
+            { label: "Issue Type", value: "OFS vs Fresh" },
+            { label: "Moat", value: "Peer Gap" }
+        ]
+    },
+
+    // --- 2. IPO REPORT: SHREEJI ---
     {
         category: "ipo",
         title: "Shreeji Global FMCG Ltd.",
@@ -80,21 +95,6 @@ const projectData = [
             { label: "P/E Ratio", value: "24.3x" },
             { label: "Beta", value: "0.93%" },
             { label: "Top Sector", value: "21.77%" }
-        ]
-    },
-
-    // --- GENERIC IPO FRAMEWORK ---
-    {
-        category: "ipo",
-        title: "IPO Analysis Framework",
-        status: "Methodology",
-        desc: "Standard framework for analyzing DRHP, Grey Market trends, and Financial health.",
-        pdf: "#", 
-        metrics: [
-            { label: "Focus", value: "Litigation" },
-            { label: "Check", value: "Promoter Hold" },
-            { label: "Issue Type", value: "OFS vs Fresh" },
-            { label: "Moat", value: "Peer Gap" }
         ]
     }
 ];
