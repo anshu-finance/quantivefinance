@@ -6,9 +6,93 @@
     <title>Blog | Quantive</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .blog-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        .blog-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .blog-card-content {
+            padding: 25px;
+        }
+        .blog-card-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0f4ff 100%);
+            color: var(--navy);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .blog-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .blog-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .blog-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        .blog-card-date {
+            color: #888;
+            font-size: 0.85rem;
+        }
+        .blog-card-link {
+            color: var(--navy);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .blog-card-link:hover {
+            transform: translateX(5px);
+        }
+        .blog-card-link svg {
+            margin-left: 6px;
+            transition: transform 0.3s ease;
+        }
+        .blog-card-link:hover svg {
+            transform: translateX(3px);
+        }
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-
     <header id="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo fade-in-down" style="text-decoration: none;" id="nav-logo">
@@ -36,24 +120,52 @@
 
     <section class="section-padding">
         <div class="container">
-            <div class="project-card reveal" style="text-align: center; padding: 60px;">
-                <div style="font-size: 4rem; margin-bottom: 20px;">✍️</div>
-                <h3>Content In Pipeline</h3>
-                <p style="max-width: 500px; margin: 10px auto 30px;">
-                    I am currently curating a series of articles designed to explain Equity, Debt, Bonds, and Market Regulations in simple terms.
-                </p>
-                <span class="btn btn-secondary" style="cursor: default;">Launching Q4 2025</span>
+            <div class="blog-grid">
+                
+                <!-- Blog Post 1: Time Value of Money -->
+                <article class="blog-card reveal">
+                    <img src="blog-images/tvm-hero.jpg" alt="Time Value of Money" class="blog-card-image">
+                    <div class="blog-card-content">
+                        <span class="blog-card-tag">FUNDAMENTALS</span>
+                        <h3>Time Value of Money: The Simplest Explanation Ever</h3>
+                        <p>Why ₹1,000 today is worth more than ₹1,000 tomorrow. Learn the foundation of all financial decisions with real Indian examples.</p>
+                        <div class="blog-card-meta">
+                            <span class="blog-card-date">Nov 26, 2025 • 8 min read</span>
+                            <a href="blog-tvm.html" class="blog-card-link">
+                                Read More
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container footer-content">
-            <div class="footer-brand"><h2>QUANTIVE.</h2></div>
-            <div class="copyright">&copy; 2025 Quantive. Designed by Anshumaan Verma.</div>
+        <div class="container">
+            <h2 class="footer-logo">QUANTIVE.</h2>
+            <p class="footer-text">© 2025 Quantive. Designed by Anshumaan Verma.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const revealTop = el.getBoundingClientRect().top;
+                const revealPoint = 150;
+                if (revealTop < windowHeight - revealPoint) {
+                    el.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', reveal);
+        reveal();
+    </script>
 </body>
 </html>
