@@ -20,7 +20,7 @@
                     <li><a href="projects.html" class="nav-link" id="nav-projects">Projects</a></li>
                     <li><a href="resume.html" class="nav-link" id="nav-resume">Resume</a></li>
                     <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
-                    <li><a href="contact.html" class="btn-nav" id="nav-contact">Contact</a></li>
+                    <li><a href="contact.html" class="btn-nav active" id="nav-contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -33,7 +33,7 @@
                 Open for recruitment opportunities in Equity Research, IPO Analysis, and Financial Modeling.
             </p>
 
-            <div class="about-grid fade-in-up delay-3" style="margin-top: 50px; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+            <div class="about-grid fade-in-up delay-3" style="margin-top: 50px; grid-template-columns: repeat(3, 1fr); gap: 20px;">
                 
                 <a href="https://www.linkedin.com/in/anshu2710" target="_blank" class="project-card" style="text-decoration: none; text-align: center; padding: 30px;">
                     <h3 style="font-size: 1.2rem; margin-bottom: 10px;">LinkedIn</h3>
@@ -54,20 +54,7 @@
         </div>
     </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const path = window.location.pathname;
-            const fileName = path.substring(path.lastIndexOf('/') + 1);
-
-            // Deactivate all links first
-            document.querySelectorAll('.nav-link, .btn-nav').forEach(link => {
-                link.classList.remove('active');
-            });
-
-            // Determine which page is active and apply 'active' class for highlighting
-            if (fileName === 'index.html' || fileName === '') {
-                document.getElementById('nav-home').classList.add('active');
-            } else if (fileName === 'projects.html' || fileName === 'equity-reports.html' || fileName === 'mf-analysis.html' || fileName === 'ipo-analysis.html') {
-                document.getElementById('nav-projects').classList.add('active');
-            } else if (fileName === 'resume.html') {
-                document.getElementById('nav-
+    <!-- Changed to link external JS script -->
+    <script src="script.js"></script>
+</body>
+</html>
