@@ -2,6 +2,19 @@ const projectData = [
     // --- EQUITY REPORTS ---
     {
         category: "equity",
+        title: "APL Apollo Tubes Ltd",
+        status: "Valuation & Risk",
+        desc: "Comprehensive analysis including DCF, Relative Valuation, and Monte-Carlo simulation. Stock currently trading at a premium.",
+        pdf: "APL_Apollo_Report.pdf",
+        metrics: [
+            { label: "P/E Ratio", value: "55.9x" },
+            { label: "5Y Avg ROE", value: "18.53%" },
+            { label: "DCF Value", value: "₹514.75" },
+            { label: "Verdict", value: "2.07x Premium", highlight: true }
+        ]
+    },
+    {
+        category: "equity",
         title: "Dabur India Ltd.",
         status: "DCF & Relative Pricing",
         desc: "10-year financial analysis and valuation model. Stock trading at significant premium to intrinsic value.",
