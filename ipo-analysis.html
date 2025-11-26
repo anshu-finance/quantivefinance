@@ -12,20 +12,58 @@ Html
 <body>
 
     <header id="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo fade-in-down" style="text-decoration: none;" id="nav-logo">
-                QUANTIVE<span class="dot">.</span>
-            </a>
-            <nav>
-                <ul class="nav-links fade-in-down delay-1">
-                    <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
-                    <li><a href="projects.html" class="nav-link" id="nav-projects">Projects</a></li>
-                    <li><a href="resume.html" class="nav-link" id="nav-resume">Resume</a></li>
-                    <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
-                    <li><a href="contact.html" class="btn-nav" id="nav-contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+<!-- Inside equity-reports.html -->
+<section class="project-list section-padding">
+    <div class="container project-grid" id="equity-container">
+        <!-- Javascript will inject cards here automatically -->
+    </div>
+</section>
+
+<!-- Add this at the bottom, BEFORE script.js -->
+<script src="database.js"></script> 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.getElementById('equity-container');
+        // Filter only 'equity' category from database
+        const equityProjects = projectData.filter(p => p.category === 'equity');
+        
+        equityProjects.forEach(project => {
+            // Generate HTML for each project
+            const card = document.createElement('div');
+            card.className = 'project-card reveal';
+            
+            // Generate Metrics HTML
+            let metricsHTML = '';
+            project.metrics.forEach(m => {
+                const highlightClass = m.highlight ? 'highlight-red' : '';
+                metricsHTML += `
+                    <div class="metric">
+                        <span class="label">${m.label}</span>
+                        <span class="value ${highlightClass}">${m.value}</span>
+                    </div>
+                `;
+            });
+
+            card.innerHTML = `
+                <div class="card-status">${project.status}</div>
+                <div class="card-content">
+                    <h3>${project.title}</h3>
+                    <p class="project-desc">${project.desc}</p>
+                    <div class="metrics-grid">
+                        ${metricsHTML}
+                    </div>
+                </div>
+                <div class="card-action">
+                    <a href="${project.pdf}" target="_blank" class="btn btn-outline">Download Report &rarr;</a>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+        
+        // Re-trigger animations
+        if(typeof reveal === "function") reveal();
+    });
+</script>
     </header>
 
     <section class="page-header reveal" style="padding-top: 150px; padding-bottom: 50px;">
@@ -106,3 +144,4 @@ Html
     <script src="script.js"></script>
 </body>
 </html>
+
