@@ -25,6 +25,7 @@
             </nav>
         </div>
     </header>
+
     <section class="section-padding" style="padding-top: 150px;">
         <div class="container fade-in-up" style="text-align: center;">
             <div class="section-header" style="justify-content: center;">
@@ -37,7 +38,9 @@
 
             <a href="resume.pdf" download class="btn btn-primary" style="margin-bottom: 40px;">Download PDF Version &darr;</a>
 
-            <div style="background: white; padding: 10px; box-shadow: var(--shadow-soft); border-radius: 12px; height: 800px;" class="reveal">
+            <!-- Iframe container -->
+            <div style="background: white; padding: 10px; box-shadow: var(--shadow-soft); border-radius: 12px; height: 800px; overflow:hidden;" class="reveal">
+                <!-- Ensure resume.pdf is in the same folder -->
                 <iframe src="resume.pdf" width="100%" height="100%" style="border: none; border-radius: 8px;">
                     <p>Your browser does not support PDFs. <a href="resume.pdf">Download the PDF</a>.</p>
                 </iframe>
@@ -52,46 +55,6 @@
         </div>
     </footer>
     
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const path = window.location.pathname;
-            const fileName = path.substring(path.lastIndexOf('/') + 1);
-
-            // Deactivate all links first
-            document.querySelectorAll('.nav-link, .btn-nav').forEach(link => {
-                link.classList.remove('active');
-            });
-
-            // Determine which page is active and apply 'active' class for highlighting
-            if (fileName === 'index.html' || fileName === '') {
-                document.getElementById('nav-home').classList.add('active');
-            } else if (fileName === 'projects.html' || fileName === 'equity-reports.html' || fileName === 'mf-analysis.html' || fileName === 'ipo-analysis.html') {
-                document.getElementById('nav-projects').classList.add('active');
-            } else if (fileName === 'resume.html') {
-                document.getElementById('nav-resume').classList.add('active');
-            } else if (fileName === 'blog.html') {
-                document.getElementById('nav-blog').classList.add('active');
-            } else if (fileName === 'contact.html') {
-                document.getElementById('nav-contact').classList.add('active');
-            }
-        });
-
-        // Add the scroll reveal logic to the same script block
-        window.addEventListener('load', () => { reveal(); });
-        window.addEventListener('scroll', reveal);
-
-        function reveal() {
-            var reveals = document.querySelectorAll('.reveal');
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add('active');
-                }
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
