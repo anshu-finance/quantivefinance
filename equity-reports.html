@@ -13,9 +13,52 @@
         <!-- Inside equity-reports.html -->
 <section class="project-list section-padding">
     <div class="container project-grid" id="equity-container">
-        <!-- Javascript will inject cards here automatically -->
+        <!-- LEAVE THIS EMPTY. Javascript fills it. -->
     </div>
 </section>
+
+<!-- Bottom of the file -->
+<script src="database.js"></script> 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.getElementById('equity-container');
+        const projects = projectData.filter(p => p.category === 'equity');
+        
+        // ... (Keep your script logic here)
+        projects.forEach(project => {
+            const card = document.createElement('div');
+            card.className = 'project-card reveal';
+            // ... (rest of logic)
+            // Be sure to include the logic I gave you in the previous step
+             let metricsHTML = '';
+            project.metrics.forEach(m => {
+                const highlightClass = m.highlight ? 'highlight-red' : '';
+                metricsHTML += `
+                    <div class="metric">
+                        <span class="label">${m.label}</span>
+                        <span class="value ${highlightClass}">${m.value}</span>
+                    </div>
+                `;
+            });
+
+            card.innerHTML = `
+                <div class="card-status">${project.status}</div>
+                <div class="card-content">
+                    <h3>${project.title}</h3>
+                    <p class="project-desc">${project.desc}</p>
+                    <div class="metrics-grid">
+                        ${metricsHTML}
+                    </div>
+                </div>
+                <div class="card-action">
+                    <a href="${project.pdf}" target="_blank" class="btn btn-outline">Download Report &rarr;</a>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+        if(typeof reveal === "function") reveal();
+    });
+</script>
 
 <!-- Add this at the bottom, BEFORE script.js -->
 <script src="database.js"></script> 
@@ -119,4 +162,5 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
