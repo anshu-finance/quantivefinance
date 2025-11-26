@@ -25,11 +25,12 @@
             </nav>
         </div>
     </header>
+
     <section class="page-header reveal" style="padding-top: 150px; padding-bottom: 50px;">
         <div class="container">
             <span class="tagline">PORTFOLIO & RISK ASSESSMENT</span>
             <h1 class="page-title">Mutual Fund Analysis Reports</h1>
-            <p class="page-subtitle">Comparative analysis of concentrated funds, focusing on performance, portfolio concentration, and risk-adjusted returns (Sharpe, Beta, Alpha).</p>
+            <p class="subtitle">Comparative analysis of concentrated funds focusing on Alpha, Beta, and Sharpe ratios.</p>
         </div>
     </section>
 
@@ -40,29 +41,17 @@
                 <div class="card-status">Multi-Cap / High Risk</div>
                 <div class="card-content">
                     <h3 id="sbi-focused">SBI Focused Equity Fund</h3>
-                    <p class="project-desc">Assessment of a multi-cap, high-conviction fund strategy. Analysis confirms a high P/E ratio, concentration risk (Financial Services: 33.90%), and mixed performance against the BSE 500 TRI benchmark.</p>
+                    <p class="project-desc">Assessment of a multi-cap, high-conviction fund strategy. Analysis confirms a high P/E ratio, concentration risk (Financial Services: 33.90%), and mixed performance against BSE 500 TRI.</p>
                     
                     <div class="metrics-grid">
-                        <div class="metric">
-                            <span class="label">10Y CAGR</span>
-                            <span class="value">12.81%</span>
-                        </div>
-                        <div class="metric">
-                            <span class="label">P/E Ratio</span>
-                            <span class="value">20.7x</span>
-                        </div>
-                        <div class="metric">
-                            <span class="label">Beta</span>
-                            <span class="value">0.72%</span>
-                        </div>
-                        <div class="metric">
-                            <span class="label">Top Sector %</span>
-                            <span class="value highlight-red">33.90%</span>
-                        </div>
+                        <div class="metric"><span class="label">10Y CAGR</span><span class="value">12.81%</span></div>
+                        <div class="metric"><span class="label">P/E Ratio</span><span class="value">20.7x</span></div>
+                        <div class="metric"><span class="label">Beta</span><span class="value">0.72%</span></div>
+                        <div class="metric"><span class="label">Top Sector</span><span class="value highlight-red">33.90%</span></div>
                     </div>
                 </div>
                 <div class="card-action">
-                    <a href="SBI Focused Equity Fund_ Performance & Analysis Report.pdf" target="_blank" class="btn btn-outline">Download Full Report PDF &rarr;</a>
+                    <a href="SBI Focused Equity Fund_ Performance & Analysis Report.pdf" target="_blank" class="btn btn-outline">Download Report &rarr;</a>
                 </div>
             </div>
 
@@ -70,29 +59,17 @@
                 <div class="card-status">Mid-Cap / Moderately High Risk</div>
                 <div class="card-content">
                     <h3 id="nippon-growth">Nippon India Growth Fund</h3>
-                    <p class="project-desc">A review of a mid-cap focused fund. The analysis compares its volatility (Standard Deviation) and return against the Nifty Midcap 150 - TRI benchmark, noting its premium valuation (P/E 24.3x).</p>
+                    <p class="project-desc">Review of a mid-cap focused fund. Analysis compares its volatility and return against Nifty Midcap 150 - TRI, noting its premium valuation (P/E 24.3x).</p>
                     
                     <div class="metrics-grid">
-                        <div class="metric">
-                            <span class="label">5Y CAGR</span>
-                            <span class="value">24.07%</span>
-                        </div>
-                        <div class="metric">
-                            <span class="label">P/E Ratio</span>
-                            <span class="value">24.3x</span>
-                        </div>
-                        <div class="metric">
-                            <span class="label">Beta</span>
-                            <span class="value">0.93%</span>
-                        </div>
-                        <div class="metric">
-                            <span class="label">Top Sector %</span>
-                            <span class="value">21.77%</span>
-                        </div>
+                        <div class="metric"><span class="label">5Y CAGR</span><span class="value">24.07%</span></div>
+                        <div class="metric"><span class="label">P/E Ratio</span><span class="value">24.3x</span></div>
+                        <div class="metric"><span class="label">Beta</span><span class="value">0.93%</span></div>
+                        <div class="metric"><span class="label">Top Sector</span><span class="value">21.77%</span></div>
                     </div>
                 </div>
                 <div class="card-action">
-                    <a href="Nippon India Growth Fund Analysis & Performance Review.pdf" target="_blank" class="btn btn-outline">Download Full Report PDF &rarr;</a>
+                    <a href="Nippon India Growth Fund Analysis & Performance Review.pdf" target="_blank" class="btn btn-outline">Download Report &rarr;</a>
                 </div>
             </div>
 
@@ -101,61 +78,11 @@
 
     <footer>
         <div class="container footer-content">
-            <div class="footer-brand">
-                <h2>QUANTIVE.</h2>
-                <p>Data-driven insights for the intelligent investor.</p>
-            </div>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/anshu2710" target="_blank">LinkedIn</a>
-                <a href="mailto:anshumaanverma77@gmail.com">Email</a>
-                <a href="https://wa.me/7004253853?text=Hello">WhatsApp</a>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2025 Quantive. Designed by Anshumaan Verma.
+            <div class="footer-brand"><h2>QUANTIVE.</h2></div>
+            <div class="copyright">&copy; 2025 Quantive. Designed by Anshumaan Verma.</div>
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const path = window.location.pathname;
-            const fileName = path.substring(path.lastIndexOf('/') + 1);
-
-            // Deactivate all links first
-            document.querySelectorAll('.nav-link, .btn-nav').forEach(link => {
-                link.classList.remove('active');
-            });
-
-            // Determine which page is active and apply 'active' class for highlighting
-            if (fileName === 'index.html' || fileName === '') {
-                document.getElementById('nav-home').classList.add('active');
-            } else if (fileName === 'projects.html' || fileName === 'equity-reports.html' || fileName === 'mf-analysis.html' || fileName === 'ipo-analysis.html') {
-                document.getElementById('nav-projects').classList.add('active');
-            } else if (fileName === 'resume.html') {
-                document.getElementById('nav-resume').classList.add('active');
-            } else if (fileName === 'blog.html') {
-                document.getElementById('nav-blog').classList.add('active');
-            } else if (fileName === 'contact.html') {
-                document.getElementById('nav-contact').classList.add('active');
-            }
-        });
-
-        // Add the scroll reveal logic to the same script block
-        window.addEventListener('load', () => { reveal(); });
-        window.addEventListener('scroll', reveal);
-
-        function reveal() {
-            var reveals = document.querySelectorAll('.reveal');
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add('active');
-                }
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
