@@ -8,13 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <!-- NAVBAR -->
     <header id="navbar">
         <div class="container nav-container">
-            <a href="index.html" class="logo fade-in-down" style="text-decoration: none;" id="nav-logo">
-                QUANTIVE<span class="dot">.</span>
-            </a>
+            <a href="index.html" class="logo fade-in-down" style="text-decoration: none;" id="nav-logo">QUANTIVE<span class="dot">.</span></a>
             <nav>
                 <ul class="nav-links fade-in-down delay-1">
                     <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
@@ -26,8 +22,6 @@
             </nav>
         </div>
     </header>
-
-    <!-- HEADER SECTION -->
     <section class="page-header reveal" style="padding-top: 150px; padding-bottom: 30px;">
         <div class="container">
             <span class="tagline">EQUITY & VALUATION</span>
@@ -35,66 +29,33 @@
             <p class="subtitle">Intrinsic value analysis using DCF modeling.</p>
         </div>
     </section>
-
-    <!-- EMPTY CONTAINER (Data loads here) -->
     <section class="project-list section-padding">
-        <div class="container project-grid" id="equity-container">
-            <!-- NO HTML CODE HERE. Javascript will fill this. -->
-        </div>
+        <div class="container project-grid" id="equity-container"></div>
     </section>
-
-    <!-- FOOTER -->
     <footer>
         <div class="container footer-content">
             <div class="footer-brand"><h2>QUANTIVE.</h2></div>
             <div class="copyright">&copy; 2025 Quantive. Designed by Anshumaan Verma.</div>
         </div>
     </footer>
-    
-    <!-- SCRIPTS -->
     <script src="database.js"></script>
     <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('equity-container');
-            
-            // 1. Get only Equity data
             const projects = projectData.filter(p => p.category === 'equity');
-
-            // 2. Loop through and create cards
             projects.forEach(project => {
                 const card = document.createElement('div');
                 card.className = 'project-card reveal';
-                
-                // Build metrics HTML
                 let metricsHTML = '';
                 project.metrics.forEach(m => {
                     const highlightClass = m.highlight ? 'highlight-red' : '';
-                    metricsHTML += `
-                        <div class="metric">
-                            <span class="label">${m.label}</span>
-                            <span class="value ${highlightClass}">${m.value}</span>
-                        </div>
-                    `;
+                    metricsHTML += `<div class="metric"><span class="label">${m.label}</span><span class="value ${highlightClass}">${m.value}</span></div>`;
                 });
-
-                card.innerHTML = `
-                    <div class="card-status">${project.status}</div>
-                    <div class="card-content">
-                        <h3>${project.title}</h3>
-                        <p class="project-desc">${project.desc}</p>
-                        <div class="metrics-grid">
-                            ${metricsHTML}
-                        </div>
-                    </div>
-                    <div class="card-action">
-                        <a href="${project.pdf}" target="_blank" class="btn btn-outline">Download Report &rarr;</a>
-                    </div>
-                `;
+                // UPDATED BUTTON TEXT BELOW:
+                card.innerHTML = `<div class="card-status">${project.status}</div><div class="card-content"><h3>${project.title}</h3><p class="project-desc">${project.desc}</p><div class="metrics-grid">${metricsHTML}</div></div><div class="card-action"><a href="${project.pdf}" target="_blank" class="btn btn-outline">View Report &rarr;</a></div>`;
                 container.appendChild(card);
             });
-
-            // 3. Re-trigger animation check so they appear
             if(typeof reveal === "function") reveal();
         });
     </script>
