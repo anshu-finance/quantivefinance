@@ -1,5 +1,3 @@
-code
-Html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,61 +9,25 @@ Html
 </head>
 <body>
 
+    <!-- NAVBAR -->
     <header id="navbar">
-<!-- Inside equity-reports.html -->
-<section class="project-list section-padding">
-    <div class="container project-grid" id="equity-container">
-        <!-- Javascript will inject cards here automatically -->
-    </div>
-</section>
-
-<!-- Add this at the bottom, BEFORE script.js -->
-<script src="database.js"></script> 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const container = document.getElementById('equity-container');
-        // Filter only 'equity' category from database
-        const equityProjects = projectData.filter(p => p.category === 'ipo');
-        
-        equityProjects.forEach(project => {
-            // Generate HTML for each project
-            const card = document.createElement('div');
-            card.className = 'project-card reveal';
-            
-            // Generate Metrics HTML
-            let metricsHTML = '';
-            project.metrics.forEach(m => {
-                const highlightClass = m.highlight ? 'highlight-red' : '';
-                metricsHTML += `
-                    <div class="metric">
-                        <span class="label">${m.label}</span>
-                        <span class="value ${highlightClass}">${m.value}</span>
-                    </div>
-                `;
-            });
-
-            card.innerHTML = `
-                <div class="card-status">${project.status}</div>
-                <div class="card-content">
-                    <h3>${project.title}</h3>
-                    <p class="project-desc">${project.desc}</p>
-                    <div class="metrics-grid">
-                        ${metricsHTML}
-                    </div>
-                </div>
-                <div class="card-action">
-                    <a href="${project.pdf}" target="_blank" class="btn btn-outline">Download Report &rarr;</a>
-                </div>
-            `;
-            container.appendChild(card);
-        });
-        
-        // Re-trigger animations
-        if(typeof reveal === "function") reveal();
-    });
-</script>
+        <div class="container nav-container">
+            <a href="index.html" class="logo fade-in-down" style="text-decoration: none;" id="nav-logo">
+                QUANTIVE<span class="dot">.</span>
+            </a>
+            <nav>
+                <ul class="nav-links fade-in-down delay-1">
+                    <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+                    <li><a href="projects.html" class="nav-link" id="nav-projects">Projects</a></li>
+                    <li><a href="resume.html" class="nav-link" id="nav-resume">Resume</a></li>
+                    <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
+                    <li><a href="contact.html" class="btn-nav" id="nav-contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
+    <!-- HEADER -->
     <section class="page-header reveal" style="padding-top: 150px; padding-bottom: 50px;">
         <div class="container">
             <span class="tagline">PRIMARY MARKET RESEARCH</span>
@@ -74,6 +36,7 @@ Html
         </div>
     </section>
 
+    <!-- CONFIDENTIALITY NOTICE -->
     <section class="section-padding" style="padding-bottom: 0;">
         <div class="container">
             <div class="about-card highlight-card reveal" style="border-left: 4px solid var(--navy);">
@@ -86,54 +49,14 @@ Html
         </div>
     </section>
 
+    <!-- EMPTY CONTAINER -->
     <section class="project-list section-padding">
-        <div class="container project-grid">
-            
-            <div class="project-card reveal">
-                <div class="card-status">Qualitative Analysis</div>
-                <div class="card-content">
-                    <h3>1. DRHP Screening & Business Model</h3>
-                    <p class="project-desc">Rigorous review of Draft Red Herring Prospectus to understand Use of Proceeds and Moat.</p>
-                    <div class="metrics-grid">
-                        <div class="metric"><span class="label">Focus</span><span class="value">Litigation</span></div>
-                        <div class="metric"><span class="label">Check</span><span class="value">Promoter Hold</span></div>
-                        <div class="metric"><span class="label">Issue Type</span><span class="value">OFS vs Fresh</span></div>
-                        <div class="metric"><span class="label">Moat Analysis</span><span class="value">Peer Gap</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <div class="card-status">Quantitative Analysis</div>
-                <div class="card-content">
-                    <h3>2. Financial Health & Valuation</h3>
-                    <p class="project-desc">Analysis of historical financial statements to identify growth trends and valuation gaps.</p>
-                    <div class="metrics-grid">
-                        <div class="metric"><span class="label">Growth</span><span class="value">Rev CAGR</span></div>
-                        <div class="metric"><span class="label">Margin</span><span class="value">EBITDA %</span></div>
-                        <div class="metric"><span class="label">Efficiency</span><span class="value">ROE / ROCE</span></div>
-                        <div class="metric"><span class="label">Valuation</span><span class="value">P/E vs Ind</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <div class="card-status">Market Dynamics</div>
-                <div class="card-content">
-                    <h3>3. Market Sentiment & GMP Tracking</h3>
-                    <p class="project-desc">Monitoring Grey Market Premium trends and QIB subscription rates.</p>
-                    <div class="metrics-grid">
-                        <div class="metric"><span class="label">Indicator</span><span class="value">GMP Trend</span></div>
-                        <div class="metric"><span class="label">Demand</span><span class="value">QIB Sub</span></div>
-                        <div class="metric"><span class="label">Volatility</span><span class="value">VIX Index</span></div>
-                        <div class="metric"><span class="label">Outcome</span><span class="value">Listing Gain</span></div>
-                    </div>
-                </div>
-            </div>
-
+        <div class="container project-grid" id="ipo-container">
+            <!-- NO HTML CODE HERE. Javascript will fill this. -->
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container footer-content">
             <div class="footer-brand"><h2>QUANTIVE.</h2></div>
@@ -141,8 +64,53 @@ Html
         </div>
     </footer>
 
+    <!-- SCRIPTS -->
+    <script src="database.js"></script>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('ipo-container');
+            
+            // 1. Get only IPO data
+            const projects = projectData.filter(p => p.category === 'ipo');
+
+            // 2. Loop through
+            projects.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'project-card reveal';
+                
+                let metricsHTML = '';
+                project.metrics.forEach(m => {
+                    const highlightClass = m.highlight ? 'highlight-red' : '';
+                    metricsHTML += `
+                        <div class="metric">
+                            <span class="label">${m.label}</span>
+                            <span class="value ${highlightClass}">${m.value}</span>
+                        </div>
+                    `;
+                });
+
+                // Hide button if no PDF
+                const btnDisplay = (project.pdf === '#' || project.pdf === '') ? 'style="display:none"' : '';
+
+                card.innerHTML = `
+                    <div class="card-status">${project.status}</div>
+                    <div class="card-content">
+                        <h3>${project.title}</h3>
+                        <p class="project-desc">${project.desc}</p>
+                        <div class="metrics-grid">
+                            ${metricsHTML}
+                        </div>
+                    </div>
+                    <div class="card-action" ${btnDisplay}>
+                        <a href="${project.pdf}" target="_blank" class="btn btn-outline">Download Report &rarr;</a>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            if(typeof reveal === "function") reveal();
+        });
+    </script>
 </body>
 </html>
-
-
