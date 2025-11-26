@@ -9,19 +9,7 @@
 </head>
 <body>
 
-    <header id="navbar">
-        <!-- Inside equity-reports.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mutual Funds | Quantive</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-</head>
-<body>
-
+    <!-- NAVBAR -->
     <header id="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo fade-in-down" style="text-decoration: none;" id="nav-logo">
@@ -39,6 +27,7 @@
         </div>
     </header>
 
+    <!-- HEADER -->
     <section class="page-header reveal" style="padding-top: 150px; padding-bottom: 50px;">
         <div class="container">
             <span class="tagline">PORTFOLIO & RISK ASSESSMENT</span>
@@ -47,13 +36,14 @@
         </div>
     </section>
 
-    <!-- AUTOMATED CONTAINER -->
+    <!-- EMPTY CONTAINER -->
     <section class="project-list section-padding">
         <div class="container project-grid" id="mf-container">
-            <!-- EMPTY CONTAINER - JS WILL FILL THIS -->
+            <!-- NO HTML CODE HERE. Javascript will fill this. -->
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container footer-content">
             <div class="footer-brand"><h2>QUANTIVE.</h2></div>
@@ -61,15 +51,17 @@
         </div>
     </footer>
 
-    <!-- LOGIC -->
-    <script src="script.js"></script>
+    <!-- SCRIPTS -->
     <script src="database.js"></script>
+    <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('mf-container');
-            // FILTER ONLY MUTUAL FUNDS
-            const projects = projectData.filter(p => p.category === 'mf');
             
+            // 1. Get only Mutual Fund data
+            const projects = projectData.filter(p => p.category === 'mf');
+
+            // 2. Loop through
             projects.forEach(project => {
                 const card = document.createElement('div');
                 card.className = 'project-card reveal';
@@ -100,119 +92,9 @@
                 `;
                 container.appendChild(card);
             });
+
             if(typeof reveal === "function") reveal();
         });
     </script>
 </body>
 </html>
-
-<!-- Add this at the bottom, BEFORE script.js -->
-<script src="database.js"></script> 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const container = document.getElementById('equity-container');
-        // Filter only 'equity' category from database
-        const equityProjects = projectData.filter(p => p.category === 'mf');
-        
-        equityProjects.forEach(project => {
-            // Generate HTML for each project
-            const card = document.createElement('div');
-            card.className = 'project-card reveal';
-            
-            // Generate Metrics HTML
-            let metricsHTML = '';
-            project.metrics.forEach(m => {
-                const highlightClass = m.highlight ? 'highlight-red' : '';
-                metricsHTML += `
-                    <div class="metric">
-                        <span class="label">${m.label}</span>
-                        <span class="value ${highlightClass}">${m.value}</span>
-                    </div>
-                `;
-            });
-
-            card.innerHTML = `
-                <div class="card-status">${project.status}</div>
-                <div class="card-content">
-                    <h3>${project.title}</h3>
-                    <p class="project-desc">${project.desc}</p>
-                    <div class="metrics-grid">
-                        ${metricsHTML}
-                    </div>
-                </div>
-                <div class="card-action">
-                    <a href="${project.pdf}" target="_blank" class="btn btn-outline">Download Report &rarr;</a>
-                </div>
-            `;
-            container.appendChild(card);
-        });
-        
-        // Re-trigger animations
-        if(typeof reveal === "function") reveal();
-    });
-</script>
-    </header>
-
-    <section class="page-header reveal" style="padding-top: 150px; padding-bottom: 50px;">
-        <div class="container">
-            <span class="tagline">PORTFOLIO & RISK ASSESSMENT</span>
-            <h1 class="page-title">Mutual Fund Analysis Reports</h1>
-            <p class="subtitle">Comparative analysis of concentrated funds focusing on Alpha, Beta, and Sharpe ratios.</p>
-        </div>
-    </section>
-
-    <section class="project-list section-padding">
-        <div class="container project-grid">
-
-            <div class="project-card reveal">
-                <div class="card-status">Multi-Cap / High Risk</div>
-                <div class="card-content">
-                    <h3 id="sbi-focused">SBI Focused Equity Fund</h3>
-                    <p class="project-desc">Assessment of a multi-cap, high-conviction fund strategy. Analysis confirms a high P/E ratio, concentration risk (Financial Services: 33.90%), and mixed performance against BSE 500 TRI.</p>
-                    
-                    <div class="metrics-grid">
-                        <div class="metric"><span class="label">10Y CAGR</span><span class="value">12.81%</span></div>
-                        <div class="metric"><span class="label">P/E Ratio</span><span class="value">20.7x</span></div>
-                        <div class="metric"><span class="label">Beta</span><span class="value">0.72%</span></div>
-                        <div class="metric"><span class="label">Top Sector</span><span class="value highlight-red">33.90%</span></div>
-                    </div>
-                </div>
-                <div class="card-action">
-                    <a href="SBI Focused Equity Fund_ Performance & Analysis Report.pdf" target="_blank" class="btn btn-outline">Download Report &rarr;</a>
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <div class="card-status">Mid-Cap / Moderately High Risk</div>
-                <div class="card-content">
-                    <h3 id="nippon-growth">Nippon India Growth Fund</h3>
-                    <p class="project-desc">Review of a mid-cap focused fund. Analysis compares its volatility and return against Nifty Midcap 150 - TRI, noting its premium valuation (P/E 24.3x).</p>
-                    
-                    <div class="metrics-grid">
-                        <div class="metric"><span class="label">5Y CAGR</span><span class="value">24.07%</span></div>
-                        <div class="metric"><span class="label">P/E Ratio</span><span class="value">24.3x</span></div>
-                        <div class="metric"><span class="label">Beta</span><span class="value">0.93%</span></div>
-                        <div class="metric"><span class="label">Top Sector</span><span class="value">21.77%</span></div>
-                    </div>
-                </div>
-                <div class="card-action">
-                    <a href="Nippon India Growth Fund Analysis & Performance Review.pdf" target="_blank" class="btn btn-outline">Download Report &rarr;</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-brand"><h2>QUANTIVE.</h2></div>
-            <div class="copyright">&copy; 2025 Quantive. Designed by Anshumaan Verma.</div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
-
-
-
