@@ -88,3 +88,13 @@ const projectData = [
         category: "ipo",
         title: "IPO Analysis Framework",
         status: "Methodology",
+        desc: "Standard framework for analyzing DRHP, Grey Market trends, and Financial health.",
+        pdf: "#", 
+        metrics: [
+            { label: "Focus", value: "Litigation" },
+            { label: "Check", value: "Promoter Hold" },
+            { label: "Issue Type", value: "OFS vs Fresh" },
+            { label: "Moat", value: "Peer Gap" }
+        ]
+    }
+];
