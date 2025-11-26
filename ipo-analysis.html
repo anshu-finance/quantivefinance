@@ -9,7 +9,6 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <header id="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo fade-in-down" style="text-decoration: none;" id="nav-logo">
@@ -27,36 +26,28 @@
         </div>
     </header>
 
-    <!-- HEADER -->
     <section class="page-header reveal" style="padding-top: 150px; padding-bottom: 50px;">
         <div class="container">
             <span class="tagline">PRIMARY MARKET RESEARCH</span>
             <h1 class="page-title">IPO Analysis & DRHP Review</h1>
-            <p class="subtitle">Overview of analytical framework for listing gains and long-term holds.</p>
         </div>
     </section>
 
-    <!-- CONFIDENTIALITY NOTICE -->
-    <section class="section-padding" style="padding-bottom: 0;">
-        <div class="container">
-            <div class="about-card highlight-card reveal" style="border-left: 4px solid var(--navy);">
-                <h4>🔒 Confidentiality Notice</h4>
-                <p style="margin-bottom: 0; font-size: 0.95rem;">
-                    Specific research reports and financial models prepared for InsightsKnox are proprietary and subject to NDAs. 
-                    The frameworks below demonstrate the methodology and risk parameters used.
-                </p>
-            </div>
+    <!-- ERROR BOX: Only appears if something is wrong -->
+    <div class="container">
+        <div id="debug-box" style="background: #fee2e2; border: 2px solid red; color: #b91c1c; padding: 20px; border-radius: 8px; display: none; margin-bottom: 30px;">
+            <h3>⚠️ System Error Detected</h3>
+            <p id="error-msg">Checking system...</p>
         </div>
-    </section>
+    </div>
 
     <!-- EMPTY CONTAINER -->
     <section class="project-list section-padding">
         <div class="container project-grid" id="ipo-container">
-            <!-- NO HTML CODE HERE. Javascript will fill this. -->
+            <!-- JS fills this -->
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container footer-content">
             <div class="footer-brand"><h2>QUANTIVE.</h2></div>
@@ -67,30 +58,49 @@
     <!-- SCRIPTS -->
     <script src="database.js"></script>
     <script src="script.js"></script>
+    
+    <!-- DEBUGGING LOGIC -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const errorBox = document.getElementById('debug-box');
+            const errorMsg = document.getElementById('error-msg');
             const container = document.getElementById('ipo-container');
-            
-            // 1. Get only IPO data
+
+            // 1. Check if Database loaded
+            if (typeof projectData === 'undefined') {
+                errorBox.style.display = 'block';
+                errorMsg.innerHTML = "<strong>CRITICAL ERROR:</strong> The file 'database.js' failed to load.<br>This usually means there is a typo or syntax error in that file.";
+                return;
+            }
+
+            // 2. Filter Data
             const projects = projectData.filter(p => p.category === 'ipo');
 
-            // 2. Loop through
+            // 3. Check if we found any reports
+            if (projects.length === 0) {
+                errorBox.style.display = 'block';
+                errorMsg.innerHTML = "<strong>NOTICE:</strong> The database loaded, but 0 reports were found with category 'ipo'.<br>Check if you spelled 'ipo' correctly in database.js.";
+                return;
+            }
+
+            // 4. Render Cards
             projects.forEach(project => {
                 const card = document.createElement('div');
                 card.className = 'project-card reveal';
                 
                 let metricsHTML = '';
-                project.metrics.forEach(m => {
-                    const highlightClass = m.highlight ? 'highlight-red' : '';
-                    metricsHTML += `
-                        <div class="metric">
-                            <span class="label">${m.label}</span>
-                            <span class="value ${highlightClass}">${m.value}</span>
-                        </div>
-                    `;
-                });
+                if(project.metrics) {
+                    project.metrics.forEach(m => {
+                        const highlightClass = m.highlight ? 'highlight-red' : '';
+                        metricsHTML += `
+                            <div class="metric">
+                                <span class="label">${m.label}</span>
+                                <span class="value ${highlightClass}">${m.value}</span>
+                            </div>
+                        `;
+                    });
+                }
 
-                // Hide button if no PDF
                 const btnDisplay = (project.pdf === '#' || project.pdf === '') ? 'style="display:none"' : '';
 
                 card.innerHTML = `
