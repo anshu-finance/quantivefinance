@@ -25,6 +25,7 @@
             </nav>
         </div>
     </header>
+
     <section class="page-header reveal" style="padding-top: 150px; padding-bottom: 30px;">
         <div class="container">
             <span class="tagline">EQUITY & VALUATION</span>
@@ -35,6 +36,7 @@
 
     <section class="project-list section-padding">
         <div class="container project-grid">
+            <!-- Project 1 -->
             <div class="project-card reveal">
                 <div class="card-status">DCF & Relative Pricing</div>
                 <div class="card-content">
@@ -47,9 +49,11 @@
                         <div class="metric"><span class="label">Verdict</span><span class="value highlight-red">2.73x Premium</span></div>
                     </div>
                 </div>
+                <!-- Make sure PDF filenames match exactly what you have in folder -->
                 <div class="card-action"><a href="Dabur India Ltd. Financial Report-1.pdf" target="_blank" class="btn btn-outline">Download Report &rarr;</a></div>
             </div>
 
+            <!-- Project 2 -->
             <div class="project-card reveal">
                 <div class="card-status">Healthcare Sector</div>
                 <div class="card-content">
@@ -74,46 +78,6 @@
         </div>
     </footer>
     
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const path = window.location.pathname;
-            const fileName = path.substring(path.lastIndexOf('/') + 1);
-
-            // Deactivate all links first
-            document.querySelectorAll('.nav-link, .btn-nav').forEach(link => {
-                link.classList.remove('active');
-            });
-
-            // Determine which page is active and apply 'active' class for highlighting
-            if (fileName === 'index.html' || fileName === '') {
-                document.getElementById('nav-home').classList.add('active');
-            } else if (fileName === 'projects.html' || fileName === 'equity-reports.html' || fileName === 'mf-analysis.html' || fileName === 'ipo-analysis.html') {
-                document.getElementById('nav-projects').classList.add('active');
-            } else if (fileName === 'resume.html') {
-                document.getElementById('nav-resume').classList.add('active');
-            } else if (fileName === 'blog.html') {
-                document.getElementById('nav-blog').classList.add('active');
-            } else if (fileName === 'contact.html') {
-                document.getElementById('nav-contact').classList.add('active');
-            }
-        });
-
-        // Add the scroll reveal logic to the same script block
-        window.addEventListener('load', () => { reveal(); });
-        window.addEventListener('scroll', reveal);
-
-        function reveal() {
-            var reveals = document.querySelectorAll('.reveal');
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add('active');
-                }
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
