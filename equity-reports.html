@@ -9,104 +9,25 @@
 </head>
 <body>
     
+    <!-- NAVBAR -->
     <header id="navbar">
-        <!-- Inside equity-reports.html -->
-<section class="project-list section-padding">
-    <div class="container project-grid" id="equity-container">
-        <!-- LEAVE THIS EMPTY. Javascript fills it. -->
-    </div>
-</section>
-
-<!-- Bottom of the file -->
-<script src="database.js"></script> 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const container = document.getElementById('equity-container');
-        const projects = projectData.filter(p => p.category === 'equity');
-        
-        // ... (Keep your script logic here)
-        projects.forEach(project => {
-            const card = document.createElement('div');
-            card.className = 'project-card reveal';
-            // ... (rest of logic)
-            // Be sure to include the logic I gave you in the previous step
-             let metricsHTML = '';
-            project.metrics.forEach(m => {
-                const highlightClass = m.highlight ? 'highlight-red' : '';
-                metricsHTML += `
-                    <div class="metric">
-                        <span class="label">${m.label}</span>
-                        <span class="value ${highlightClass}">${m.value}</span>
-                    </div>
-                `;
-            });
-
-            card.innerHTML = `
-                <div class="card-status">${project.status}</div>
-                <div class="card-content">
-                    <h3>${project.title}</h3>
-                    <p class="project-desc">${project.desc}</p>
-                    <div class="metrics-grid">
-                        ${metricsHTML}
-                    </div>
-                </div>
-                <div class="card-action">
-                    <a href="${project.pdf}" target="_blank" class="btn btn-outline">Download Report &rarr;</a>
-                </div>
-            `;
-            container.appendChild(card);
-        });
-        if(typeof reveal === "function") reveal();
-    });
-</script>
-
-<!-- Add this at the bottom, BEFORE script.js -->
-<script src="database.js"></script> 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const container = document.getElementById('equity-container');
-        // Filter only 'equity' category from database
-        const equityProjects = projectData.filter(p => p.category === 'equity');
-        
-        equityProjects.forEach(project => {
-            // Generate HTML for each project
-            const card = document.createElement('div');
-            card.className = 'project-card reveal';
-            
-            // Generate Metrics HTML
-            let metricsHTML = '';
-            project.metrics.forEach(m => {
-                const highlightClass = m.highlight ? 'highlight-red' : '';
-                metricsHTML += `
-                    <div class="metric">
-                        <span class="label">${m.label}</span>
-                        <span class="value ${highlightClass}">${m.value}</span>
-                    </div>
-                `;
-            });
-
-            card.innerHTML = `
-                <div class="card-status">${project.status}</div>
-                <div class="card-content">
-                    <h3>${project.title}</h3>
-                    <p class="project-desc">${project.desc}</p>
-                    <div class="metrics-grid">
-                        ${metricsHTML}
-                    </div>
-                </div>
-                <div class="card-action">
-                    <a href="${project.pdf}" target="_blank" class="btn btn-outline">Download Report &rarr;</a>
-                </div>
-            `;
-            container.appendChild(card);
-        });
-        
-        // Re-trigger animations
-        if(typeof reveal === "function") reveal();
-    });
-</script>
+        <div class="container nav-container">
+            <a href="index.html" class="logo fade-in-down" style="text-decoration: none;" id="nav-logo">
+                QUANTIVE<span class="dot">.</span>
+            </a>
+            <nav>
+                <ul class="nav-links fade-in-down delay-1">
+                    <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+                    <li><a href="projects.html" class="nav-link" id="nav-projects">Projects</a></li>
+                    <li><a href="resume.html" class="nav-link" id="nav-resume">Resume</a></li>
+                    <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
+                    <li><a href="contact.html" class="btn-nav" id="nav-contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
+    <!-- HEADER SECTION -->
     <section class="page-header reveal" style="padding-top: 150px; padding-bottom: 30px;">
         <div class="container">
             <span class="tagline">EQUITY & VALUATION</span>
@@ -115,43 +36,14 @@
         </div>
     </section>
 
+    <!-- EMPTY CONTAINER (Data loads here) -->
     <section class="project-list section-padding">
-        <div class="container project-grid">
-            <!-- Project 1 -->
-            <div class="project-card reveal">
-                <div class="card-status">DCF & Relative Pricing</div>
-                <div class="card-content">
-                    <h3 id="dabur">Dabur India Ltd.</h3>
-                    <p class="project-desc">10-year financial analysis and valuation model. Stock trading at significant premium to intrinsic value.</p>
-                    <div class="metrics-grid">
-                        <div class="metric"><span class="label">P/E Ratio</span><span class="value">51.58x</span></div>
-                        <div class="metric"><span class="label">ROE</span><span class="value">16.11%</span></div>
-                        <div class="metric"><span class="label">DCF Value</span><span class="value">₹135.03</span></div>
-                        <div class="metric"><span class="label">Verdict</span><span class="value highlight-red">2.73x Premium</span></div>
-                    </div>
-                </div>
-                <!-- Make sure PDF filenames match exactly what you have in folder -->
-                <div class="card-action"><a href="Dabur India Ltd. Financial Report-1.pdf" target="_blank" class="btn btn-outline">Download Report &rarr;</a></div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="project-card reveal">
-                <div class="card-status">Healthcare Sector</div>
-                <div class="card-content">
-                    <h3 id="caplin">Caplin Point Laboratories</h3>
-                    <p class="project-desc">High growth healthcare valuation. Noted massive divergence between DCF value and market price.</p>
-                    <div class="metrics-grid">
-                        <div class="metric"><span class="label">P/E Ratio</span><span class="value">28.09x</span></div>
-                        <div class="metric"><span class="label">Growth</span><span class="value">20.77%</span></div>
-                        <div class="metric"><span class="label">DCF Value</span><span class="value">₹806.57</span></div>
-                        <div class="metric"><span class="label">Verdict</span><span class="value highlight-red">1.49x Premium</span></div>
-                    </div>
-                </div>
-                <div class="card-action"><a href="Caplin Point Lab Financial Report-1.pdf" target="_blank" class="btn btn-outline">Download Report &rarr;</a></div>
-            </div>
+        <div class="container project-grid" id="equity-container">
+            <!-- NO HTML CODE HERE. Javascript will fill this. -->
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container footer-content">
             <div class="footer-brand"><h2>QUANTIVE.</h2></div>
@@ -159,8 +51,52 @@
         </div>
     </footer>
     
+    <!-- SCRIPTS -->
+    <script src="database.js"></script>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('equity-container');
+            
+            // 1. Get only Equity data
+            const projects = projectData.filter(p => p.category === 'equity');
+
+            // 2. Loop through and create cards
+            projects.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'project-card reveal';
+                
+                // Build metrics HTML
+                let metricsHTML = '';
+                project.metrics.forEach(m => {
+                    const highlightClass = m.highlight ? 'highlight-red' : '';
+                    metricsHTML += `
+                        <div class="metric">
+                            <span class="label">${m.label}</span>
+                            <span class="value ${highlightClass}">${m.value}</span>
+                        </div>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div class="card-status">${project.status}</div>
+                    <div class="card-content">
+                        <h3>${project.title}</h3>
+                        <p class="project-desc">${project.desc}</p>
+                        <div class="metrics-grid">
+                            ${metricsHTML}
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="${project.pdf}" target="_blank" class="btn btn-outline">Download Report &rarr;</a>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            // 3. Re-trigger animation check so they appear
+            if(typeof reveal === "function") reveal();
+        });
+    </script>
 </body>
 </html>
-
-
