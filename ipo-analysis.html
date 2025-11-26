@@ -25,7 +25,7 @@ Html
     document.addEventListener('DOMContentLoaded', () => {
         const container = document.getElementById('equity-container');
         // Filter only 'equity' category from database
-        const equityProjects = projectData.filter(p => p.category === 'equity');
+        const equityProjects = projectData.filter(p => p.category === 'ipo');
         
         equityProjects.forEach(project => {
             // Generate HTML for each project
@@ -144,4 +144,5 @@ Html
     <script src="script.js"></script>
 </body>
 </html>
+
 
