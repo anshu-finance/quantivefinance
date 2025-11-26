@@ -1,5 +1,5 @@
 const projectData = [
-    // --- EQUITY REPORTS ---
+    // --- IPO REPORT: SHREEJI ---
     {
         category: "ipo",
         title: "Shreeji Global FMCG Ltd.",
@@ -13,6 +13,8 @@ const projectData = [
             { label: "Verdict", value: "Subscribe Selectively", highlight: true }
         ]
     },
+
+    // --- EQUITY REPORTS ---
     {
         category: "equity",
         title: "Dabur India Ltd.",
@@ -81,18 +83,8 @@ const projectData = [
         ]
     },
 
-    // --- IPO REPORTS ---{
+    // --- GENERIC IPO FRAMEWORK ---
+    {
         category: "ipo",
         title: "IPO Analysis Framework",
         status: "Methodology",
-        desc: "Standard framework for analyzing DRHP, Grey Market trends, and Financial health.",
-        // No PDF for this generic card, or add one if needed
-        pdf: "#", 
-        metrics: [
-            { label: "Focus", value: "Litigation" },
-            { label: "Check", value: "Promoter Hold" },
-            { label: "Issue Type", value: "OFS vs Fresh" },
-            { label: "Moat", value: "Peer Gap" }
-        ]
-    }
-];
