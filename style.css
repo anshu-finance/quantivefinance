@@ -171,3 +171,111 @@ footer { text-align: center; padding: 60px 0; background-color: rgba(255,255,255
     }
 }
 
+/* --- PROFILE CARD STYLING --- */
+.profile-card-container {
+    perspective: 1000px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.profile-card {
+    width: 280px;
+    height: 350px;
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.95), rgba(37, 99, 235, 0.95));
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-card:hover {
+    box-shadow: 0 15px 50px 0 rgba(31, 38, 135, 0.5);
+    transform: translateY(-10px);
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    text-align: center;
+    color: white;
+    width: 100%;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 10px 0 5px 0;
+    letter-spacing: 0.5px;
+}
+
+.profile-title {
+    font-size: 0.95rem;
+    font-weight: 300;
+    margin: 0 0 15px 0;
+    opacity: 0.9;
+}
+
+.profile-contact {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.profile-contact:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .profile-card {
+        width: 250px;
+        height: 320px;
+        padding: 15px;
+    }
+    
+    .profile-name {
+        font-size: 1.3rem;
+    }
+    
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+
