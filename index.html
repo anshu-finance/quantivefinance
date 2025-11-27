@@ -9,6 +9,10 @@
     <meta property="og:description" content="Portfolio covering Equity Research, DCF Modeling, and IPO Analysis.">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<!-- THREE.js Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- ColorBends Background -->
+<script src="ColorBends.js"></script>
 </head>
 <body>
 
@@ -126,5 +130,17 @@
 
     <!-- EXTERNAL JS -->
     <script src="script.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    new ColorBends('body', {
+      colors: ["#1e40af", "#3b82f6", "#0ea5e9"],
+      rotation: 45,
+      speed: 0.15,
+      scale: 1.3,
+      frequency: 1.2,
+      warpStrength: 0.8,
+      mouseInfluence: 0.5,
+      parallax: 0.4,
 </body>
 </html>
+
