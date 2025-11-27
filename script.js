@@ -92,8 +92,10 @@ const navLinks = document.querySelectorAll('nav ul li');
 const filterEffect = document.querySelector('.effect.filter');
 const textEffect = document.querySelector('.effect.text');
 
-function generateParticles(x, y, index) {
+95
+    (x, y, index) {
   const particleCount = 15;
+      if (!filterEffect) return;
   for (let i = 0; i < particleCount; i++) {
     const angle = (i / particleCount) * Math.PI * 2;
     const distance = 80 + Math.random() * 20;
@@ -150,5 +152,6 @@ if (navLinks.length > 0 && filterEffect && textEffect) {
     });
   });
 }
+
 
 
