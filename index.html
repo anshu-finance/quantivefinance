@@ -131,7 +131,8 @@
     <!-- EXTERNAL JS -->
     <script src="script.js"></script>
 <script>
-  document.addEventListener('load', function() {
+  document.addEventListener('DOMContentLoaded', function() {
+          try {
     new ColorBends('body', {
       colors: ["#1e40af", "#3b82f6", "#0ea5e9"],
       rotation: 45,
@@ -144,10 +145,12 @@
               noise: 0.05,
               transparent: true
                       });
+                  } catch (error) { console.error('ColorBends initialization error:', error); }
         });
     </script>
 </body>
 </html>
+
 
 
 
