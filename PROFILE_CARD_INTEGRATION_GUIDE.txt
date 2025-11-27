@@ -1,0 +1,184 @@
+====================================================================
+PROFILE CARD INTEGRATION GUIDE - STEP BY STEP INSTRUCTIONS
+====================================================================
+
+You have 3 files that work together to create the interactive profile card:
+1. profile-card.html - Standalone demo (already created)
+2. index.html - Your main portfolio page (to be modified)
+3. style.css - Stylesheet (to be appended with new CSS)
+4. script.js - JavaScript (to be appended with new functionality)
+
+====================================================================
+STEP 1: UPDATE index.html
+====================================================================
+
+In the "about" section of index.html, find these lines (around line 67-69):
+
+    <div class="about-visual">
+        <img src="profile.jpg" alt="Anshumaan Verma" class="about-img">
+    </div>
+
+REPLACE with:
+
+    <!-- Profile Card Component -->
+    <div class="profile-card-container">
+        <div class="profile-card" id="profileCard">
+            <img src="profile.jpg" alt="Anshumaan Verma" class="profile-image" />
+            <div class="profile-info">
+                <div class="profile-name">Anshumaan Verma</div>
+                <div class="profile-title">Finance & Equity Analyst</div>
+                <button class="profile-contact" onclick="handleContact()">Contact Me</button>
+            </div>
+        </div>
+    </div>
+
+====================================================================
+STEP 2: APPEND CSS TO style.css
+====================================================================
+
+Add these styles to the END of your style.css file:
+
+.profile-card-container {
+    perspective: 1000px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.profile-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9/12;
+    background: radial-gradient(circle at 30% 30%, rgba(100, 150, 255, 0.2), rgba(10, 10, 40, 0.9));
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.profile-card.active {
+    box-shadow: 0 30px 80px rgba(100, 150, 255, 0.4);
+}
+
+.profile-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(100,150,255,0.1));
+    pointer-events: none;
+    z-index: 10;
+}
+
+.profile-image {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    display: block;
+}
+
+.profile-info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 20px;
+    background: rgba(20, 20, 50, 0.8);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 5px;
+    background: linear-gradient(to right, #fff, #a0c4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.profile-title {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.profile-contact {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.profile-contact:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(100, 150, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .profile-card { max-width: 300px; }
+    .profile-name { font-size: 20px; }
+    .profile-info { padding: 15px; }
+}
+
+====================================================================
+STEP 3: APPEND JAVASCRIPT TO script.js
+====================================================================
+
+Add these functions to the END of your script.js file:
+
+const profileCard = document.getElementById('profileCard');
+if (profileCard) {
+    function handleMouseMove(e) {
+        const rect = profileCard.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 10;
+        const rotateY = -(x - centerX) / 10;
+        profileCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        profileCard.classList.add('active');
+    }
+    function handleMouseLeave() {
+        profileCard.style.transform = 'rotateX(0) rotateY(0)';
+        profileCard.classList.remove('active');
+    }
+    function handleContact() {
+        alert('Thanks for reaching out! Email: anshumaanverma77@gmail.com');
+    }
+    profileCard.addEventListener('mousemove', handleMouseMove);
+    profileCard.addEventListener('mouseleave', handleMouseLeave);
+}
+
+====================================================================
+FINAL STEPS:
+====================================================================
+
+1. Make sure you have profile.jpg in your repository root
+2. Update all 3 files (index.html, style.css, script.js) with the code above
+3. Commit your changes to GitHub
+4. Wait 2-3 minutes for GitHub Pages to deploy
+5. Visit your site and hover over the profile card to see the 3D tilt effect!
+
+====================================================================
+FEATURES:
+====================================================================
+
+✓ 3D tilt effect that follows mouse movement
+✓ Smooth animations and transitions
+✓ Glass-morphism styling with backdrop blur
+✓ Gradient text and glowing effects
+✓ Responsive design for mobile devices
+✓ Contact button with onclick handler
+✓ Works on all modern browsers
+
+====================================================================
