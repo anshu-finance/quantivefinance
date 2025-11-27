@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gooey Nav Implementation - Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        :root {
+            --linear-ease: linear(
+                0, 0.068, 0.19 2.7%, 0.804 8.1%, 1.037, 1.199 13.2%,
+                1.245, 1.27 15.8%, 1.274, 1.272 17.4%, 1.249 19.1%,
+                0.996 28%, 0.949, 0.928 33.3%, 0.926, 0.933 36.8%,
+                1.001 45.6%, 1.018, 1.019 50.8%, 1.013, 1 63.1%,
+                0.995 68%, 1.001 85%, 1
+            );
+        }
+
+        .nav-container {
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        nav {
+            display: flex;
+            position: relative;
+            transform: translate3d(0, 0, 0.01px);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2em;
+            list-style: none;
+            padding: 0 1em;
+            margin: 0;
+            position: relative;
+            z-index: 3;
+        }
+
+        nav ul li {
+            border-radius: 100vw;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        nav ul li a {
+            display: inline-block;
+            padding: 0.6em 1em;
+            text-decoration: none;
+            color: inherit;
+            font-weight: 600;
+        }
+
+        nav ul li::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 10px;
+            background: white;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        nav ul li.active::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        nav ul li.active {
+            color: black;
+        }
+
+        .effect {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            opacity: 1;
+            pointer-events: none;
+            display: grid;
+            place-items: center;
+            z-index: 1;
+        }
+
+        .effect.text {
+            color: white;
+            transition: color 0.3s ease;
+            font-weight: 600;
+        }
+
+        .effect.text.active {
+            color: black;
+        }
+
+        .effect.filter {
+            filter: blur(7px) contrast(100) blur(0);
+            mix-blend-mode: lighten;
+        }
+
+        .effect.filter::before {
+            content: '';
+            position: absolute;
+            inset: -75px;
+            z-index: -2;
+            background: black;
+        }
+
+        .effect.filter::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: white;
+            transform: scale(0);
+            opacity: 0;
+            z-index: -1;
+            border-radius: 100vw;
+        }
+
+        .effect.active::after {
+            animation: pill 0.3s ease both;
+        }
+
+        @keyframes pill {
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .particle,
+        .point {
+            display: block;
+            opacity: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            transform-origin: center;
+        }
+
+        .particle {
+            --time: 5s;
+            position: absolute;
+            top: calc(50% - 8px);
+            left: calc(50% - 8px);
+            animation: particle calc(var(--time)) ease 1 -350ms;
+        }
+
+        .point {
+            background: var(--color);
+            opacity: 1;
+            animation: point calc(var(--time)) ease 1 -350ms;
+        }
+
+        @keyframes particle {
+            0% {
+                transform: rotate(0deg) translate(calc(var(--start-x)), calc(var(--start-y)));
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes point {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            25% {
+                transform: scale(calc(var(--scale) * 0.25));
+            }
+            38% {
+                opacity: 1;
+            }
+            65% {
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+
+        .info {
+            color: white;
+            text-align: center;
+            margin-top: 60px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎨 Gooey Nav Effect Demo</h1>
+    
+    <div class="nav-container">
+        <nav>
+            <ul>
+                <li class="active"><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+            <div class="effect filter"></div>
+            <div class="effect text active"></div>
+        </nav>
+    </div>
+
+    <div class="info">
+        <h2>✨ Gooey Navigation Effect</h2>
+        <p>Click on the navigation buttons to see the smooth morphing "gooey" bubble effect. The white bubble animates from one button to the next with colorful particles bursting out!</p>
+        <p><strong>Features:</strong> Smooth transitions, particle burst animation, 3D transforms, and responsive design.</p>
+    </div>
+
+    <script>
+        const items = [
+            { label: 'Home', href: '#home' },
+            { label: 'Projects', href: '#projects' },
+            { label: 'Resume', href: '#resume' },
+            { label: 'Blog', href: '#blog' }
+        ];
+
+        const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A'];
+        const navLinks = document.querySelectorAll('nav ul li');
+        const filterEffect = document.querySelector('.effect.filter');
+        const textEffect = document.querySelector('.effect.text');
+
+        function generateParticles(x, y, index) {
+            const particleCount = 15;
+            for (let i = 0; i < particleCount; i++) {
+                const angle = (i / particleCount) * Math.PI * 2;
+                const distance = 80 + Math.random() * 20;
+                const startX = Math.cos(angle) * distance;
+                const startY = Math.sin(angle) * distance;
+                
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.setProperty('--start-x', `${startX}px`);
+                particle.style.setProperty('--start-y', `${startY}px`);
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                
+                const point = document.createElement('div');
+                point.className = 'point';
+                point.style.setProperty('--color', colors[i % colors.length]);
+                point.style.setProperty('--scale', '1');
+                particle.appendChild(point);
+                
+                filterEffect.appendChild(particle);
+                
+                setTimeout(() => particle.remove(), 5000);
+            }
+        }
+
+        function handleNavClick(e, index) {
+            const rect = navLinks[index].getBoundingClientRect();
+            const containerRect = document.querySelector('.nav-container').getBoundingClientRect();
+            const x = rect.left - containerRect.left + rect.width / 2;
+            const y = rect.top - containerRect.top + rect.height / 2;
+
+            // Update active state
+            navLinks.forEach(link => link.classList.remove('active'));
+            navLinks[index].classList.add('active');
+            textEffect.classList.remove('active');
+            
+            // Generate particles
+            generateParticles(x, y, index);
+            
+            // Trigger animation
+            setTimeout(() => {
+                textEffect.classList.add('active');
+            }, 50);
+        }
+
+        navLinks.forEach((link, index) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                handleNavClick(e, index);
+            });
+        });
+    </script>
+</body>
+</html>
