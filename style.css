@@ -19,11 +19,11 @@ body {
     color: var(--text-gray);
     line-height: 1.7;
         width: 100%;
-        height: 100vh;
+        height: auto;
         margin: 0;
         padding: 0;
         position: relative;
-        overflow: hidden;
+        overflow: auto;
     min-height: 100vh;
     z-index: 0;
 }
@@ -445,6 +445,7 @@ nav ul li.active {
     opacity: 0;
   }
 }
+
 
 
 
