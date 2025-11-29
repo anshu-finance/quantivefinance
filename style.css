@@ -254,3 +254,102 @@ img { max-width: 100%; height: auto; }
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+
+/* --- NEW HERO SECTION STYLES --- */
+
+/* The Floating Card Container */
+.profile-card-container {
+    position: relative;
+    width: 350px;
+    height: 450px;
+    margin: 0 auto;
+}
+
+/* The Main Profile Image */
+.profile-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+    /* Glass border effect */
+    border: 1px solid rgba(255, 255, 255, 0.5); 
+    box-shadow: 0 20px 50px rgba(37, 99, 235, 0.2); /* Soft blue shadow */
+    z-index: 2;
+    position: relative;
+    /* Floating Animation */
+    animation: float-main 6s ease-in-out infinite;
+}
+
+/* Floating Badges (The "Alive" Elements) */
+.float-badge {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 18px;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 3;
+    border: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+/* Badge Positions & Specific Animations */
+.badge-1 {
+    top: 40px; right: -30px;
+    animation: float-badge-1 5s ease-in-out infinite;
+}
+
+.badge-2 {
+    bottom: 60px; left: -40px;
+    animation: float-badge-2 7s ease-in-out infinite;
+}
+
+/* Intro Text Styling */
+.intro-box {
+    background: rgba(255, 255, 255, 0.6);
+    border-left: 4px solid var(--primary-blue);
+    padding: 20px;
+    border-radius: 0 12px 12px 0;
+    margin: 25px 0;
+    backdrop-filter: blur(5px);
+}
+
+.problem-statement {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    margin-bottom: 10px;
+}
+
+.solution-statement {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+/* --- ANIMATIONS --- */
+@keyframes float-main {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes float-badge-1 {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-10px, -20px); }
+}
+
+@keyframes float-badge-2 {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(10px, -15px); }
+}
+
+/* Mobile Adjustments */
+@media screen and (max-width: 768px) {
+    .profile-card-container { width: 280px; height: 360px; margin-top: 40px; }
+    .badge-1 { right: -10px; }
+    .badge-2 { left: -10px; }
+}
