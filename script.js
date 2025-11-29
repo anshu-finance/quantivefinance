@@ -1,22 +1,15 @@
-// Wait for the page to fully load
-window.addEventListener('load', () => {
-    // 1. Trigger Scroll Animations immediately for elements already in view
-    reveal();
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+
+hamburger.addEventListener("click", () => {
+    // Toggle the 'active' class on the hamburger (turns lines to X)
+    hamburger.classList.toggle("active");
+    // Toggle the 'active' class on the menu (slides it in)
+    navLinks.classList.toggle("active");
 });
 
-// 2. Listen for Scroll
-window.addEventListener('scroll', reveal);
-
-function reveal() {
-    var reveals = document.querySelectorAll('.reveal');
-
-    for (var i = 0; i < reveals.length; i++) {
-        var windowHeight = window.innerHeight;
-        var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 100;
-
-        if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add('active');
-        }
-    }
-}
+// Close menu when a link is clicked
+document.querySelectorAll(".nav-links a").forEach(n => n.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navLinks.classList.remove("active");
+}));
