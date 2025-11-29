@@ -3,62 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equity Research | Quantive</title>
+    <title>Contact | Quantive</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header id="navbar">
         <div class="container nav-container">
-            <a href="index.html" class="logo fade-in-down" style="text-decoration: none;" id="nav-logo">QUANTIVE<span class="dot">.</span></a>
+            <a href="index.html" class="logo fade-in-down" style="text-decoration: none;">
+    QUANTIVE<span class="dot">.</span>
+</a>
             <nav>
-                <ul class="nav-links fade-in-down delay-1">
-                    <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
-                    <li><a href="projects.html" class="nav-link" id="nav-projects">Projects</a></li>
-                    <li><a href="resume.html" class="nav-link" id="nav-resume">Resume</a></li>
-                    <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
-                    <li><a href="contact.html" class="btn-nav" id="nav-contact">Contact</a></li>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html" class="btn-nav">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <section class="page-header reveal" style="padding-bottom: 30px;">
-        <div class="container">
-            <span class="tagline">EQUITY & VALUATION</span>
-            <h1 class="page-title">Deep-Dive Equity Reports</h1>
-            <p class="subtitle">Intrinsic value analysis using DCF modeling.</p>
+
+    <section class="hero" style="min-height: 80vh;">
+        <div class="container" style="text-align: center; max-width: 800px;">
+            <span class="tagline fade-in-up">GET IN TOUCH</span>
+            <h1 class="fade-in-up delay-1" style="color: var(--navy); font-size: 3.5rem; font-family: 'Playfair Display', serif;">Let's Discuss Value.</h1>
+            <p class="subtitle fade-in-up delay-2" style="margin-top: 20px;">
+                Open for recruitment opportunities in Equity Research, IPO Analysis, and Financial Modeling.
+            </p>
+
+            <div class="about-grid fade-in-up delay-3" style="margin-top: 50px; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+                
+                <a href="https://www.linkedin.com/in/anshu2710" target="_blank" class="project-card" style="text-decoration: none; text-align: center; padding: 30px;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px;">LinkedIn</h3>
+                    <p style="font-size: 0.9rem;">Connect professionally</p>
+                </a>
+
+                <a href="mailto:anshumaanverma77@gmail.com" class="project-card" style="text-decoration: none; text-align: center; padding: 30px;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Email</h3>
+                    <p style="font-size: 0.9rem;">anshumaanverma77@gmail.com</p>
+                </a>
+
+                <a href="https://wa.me/7004253853?text=Hello" class="project-card" style="text-decoration: none; text-align: center; padding: 30px;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px;">WhatsApp</h3>
+                    <p style="font-size: 0.9rem;">+91 7004253853</p>
+                </a>
+
+            </div>
         </div>
     </section>
-    <section class="project-list section-padding">
-        <div class="container project-grid" id="equity-container"></div>
-    </section>
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-brand"><h2>QUANTIVE.</h2></div>
-            <div class="copyright">&copy; 2025 Quantive. Designed by Anshumaan Verma.</div>
-        </div>
-    </footer>
-    <script src="database.js"></script>
+
     <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const container = document.getElementById('equity-container');
-            const projects = projectData.filter(p => p.category === 'equity');
-            projects.forEach(project => {
-                const card = document.createElement('div');
-                card.className = 'project-card reveal';
-                let metricsHTML = '';
-                project.metrics.forEach(m => {
-                    const highlightClass = m.highlight ? 'highlight-red' : '';
-                    metricsHTML += `<div class="metric"><span class="label">${m.label}</span><span class="value ${highlightClass}">${m.value}</span></div>`;
-                });
-                // UPDATED BUTTON TEXT BELOW:
-                card.innerHTML = `<div class="card-status">${project.status}</div><div class="card-content"><h3>${project.title}</h3><p class="project-desc">${project.desc}</p><div class="metrics-grid">${metricsHTML}</div></div><div class="card-action"><a href="${project.pdf}" target="_blank" class="btn btn-outline">View Report &rarr;</a></div>`;
-                container.appendChild(card);
-            });
-            if(typeof reveal === "function") reveal();
-        });
-    </script>
 </body>
 </html>
-
