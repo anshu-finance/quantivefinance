@@ -6,109 +6,21 @@
     <title>Blog | Quantive</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <style>
-        <!-- THREE.js Library -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-        <!-- ColorBends Background -->
-        <script src="ColorBends.js"></script>
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        .blog-card {
-            background: #fff;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-        }
-        .blog-card-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .blog-card-content {
-            padding: 25px;
-        }
-        .blog-card-tag {
-            display: inline-block;
-            background: linear-gradient(135deg, #e8f4f8 0%, #f0f4ff 100%);
-            color: var(--navy);
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 5px 12px;
-            border-radius: 20px;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
-        }
-        .blog-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: #1a1a2e;
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-        .blog-card p {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .blog-card-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
-        }
-        .blog-card-date {
-            color: #888;
-            font-size: 0.85rem;
-        }
-        .blog-card-link {
-            color: var(--navy);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-        .blog-card-link:hover {
-            transform: translateX(5px);
-        }
-        .blog-card-link svg {
-            margin-left: 6px;
-            transition: transform 0.3s ease;
-        }
-        .blog-card-link:hover svg {
-            transform: translateX(3px);
-        }
-        @media (max-width: 768px) {
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
+
     <header id="navbar">
         <div class="container nav-container">
-            <a href="index.html" class="logo fade-in-down" style="text-decoration: none;" id="nav-logo">
-                QUANTIVE<span class="dot">.</span>
-            </a>
+            <a href="index.html" class="logo fade-in-down" style="text-decoration: none;">
+    QUANTIVE<span class="dot">.</span>
+</a>
             <nav>
-                <ul class="nav-links fade-in-down delay-1">
-                    <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
-                    <li><a href="projects.html" class="nav-link" id="nav-projects">Projects</a></li>
-                    <li><a href="resume.html" class="nav-link" id="nav-resume">Resume</a></li>
-                    <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
-                    <li><a href="contact.html" class="btn-nav" id="nav-contact">Contact</a></li>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="contact.html" class="btn-nav">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -118,75 +30,32 @@
         <div class="container">
             <span class="tagline">FINANCIAL LITERACY</span>
             <h1 class="page-title">The Finance Breakdown</h1>
-            <p class="subtitle">Simplifying complex financial concepts for everyone.</p>
+            <p class="page-subtitle">Simplifying complex financial concepts for everyone. (Coming Soon)</p>
         </div>
     </section>
 
     <section class="section-padding">
         <div class="container">
-            <div class="blog-grid">
-                
-                <!-- Blog Post 1: Time Value of Money -->
-                <article class="blog-card reveal">
-                    <img src="blog-images/tvm-hero.jpg" alt="Time Value of Money" class="blog-card-image">
-                    <div class="blog-card-content">
-                        <span class="blog-card-tag">FUNDAMENTALS</span>
-                        <h3>Time Value of Money: The Simplest Explanation Ever</h3>
-                        <p>Why ₹1,000 today is worth more than ₹1,000 tomorrow. Learn the foundation of all financial decisions with real Indian examples.</p>
-                        <div class="blog-card-meta">
-                            <span class="blog-card-date">Nov 26, 2025 • 8 min read</span>
-                            <a href="blog-tvm.html" class="blog-card-link">
-                                Read More
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
+            <div class="project-card reveal" style="text-align: center; padding: 60px;">
+                <div style="font-size: 4rem; margin-bottom: 20px;">✍️</div>
+                <h3>Content In Pipeline</h3>
+                <p style="max-width: 500px; margin: 10px auto 30px;">
+                    I am currently curating a series of articles designed to explain Equity, Debt, Bonds, and Market Regulations in simple terms.
+                </p>
+                <span class="btn btn-secondary" style="cursor: default;">Launching Q4 2025</span>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <h2 class="footer-logo">QUANTIVE.</h2>
-            <p class="footer-text">© 2025 Quantive. Designed by Anshumaan Verma.</p>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>QUANTIVE.</h2>
+            </div>
+            <div class="copyright">&copy; 2025 Quantive.</div>
         </div>
     </footer>
 
-    <script>
-        function reveal() {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(el => {
-                const windowHeight = window.innerHeight;
-                const revealTop = el.getBoundingClientRect().top;
-                const revealPoint = 150;
-                if (revealTop < windowHeight - revealPoint) {
-                    el.classList.add('active');
-                }
-            });
-        }
-        window.addEventListener('scroll', reveal);
-        reveal();
-    </script>
-    <script>
-          document.addEventListener('DOMContentLoaded', function() {
-                  new ColorBends('body', {
-                            colors: ["#1e40af", "#3b82f6", "#0ea5e9"],
-                            rotation: 45,
-                            speed: 0.15,
-                            scale: 1.3,
-                            frequency: 1.2,
-                            warpStrength: 0.8,
-                            mouseInfluence: 0.5,
-                            parallax: 0.4,
-                            noise: 0.05,
-                            transparent: true
-                                    });
-                });
-        </script>
+    <script src="script.js"></script>
 </body>
 </html>
-
