@@ -8,20 +8,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header id="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo fade-in-down" style="text-decoration: none;">
-    QUANTIVE<span class="dot">.</span>
-</a>
-            <nav>
-                <ul class="nav-links fade-in-down delay-1">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projects.html" class="active">Projects</a></li>
-                    <li><a href="resume.html">Resume</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html" class="btn-nav">Contact</a></li>
-                </ul>
-            </nav>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">QUANTIVE<span style="color: #2563eb;">.</span></a>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                
+                <li class="dropdown">
+                    <a href="projects.html" style="cursor: pointer;">Projects ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="equity-reports.html">Equity Research Reports</a></li>
+                        <li><a href="mf-analysis.html">Mutual Fund Analysis</a></li>
+                        <li><a href="ipo-analysis.html">IPO Analysis Reports</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="blog.html">Blogs</a></li>
+                <li><a href="contact.html" class="btn-nav">Get In Touch</a></li>
+            </ul>
         </div>
     </header>
 
@@ -66,3 +77,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
