@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Quantive</title>
+    <title>Equity Research Reports | Quantive</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
@@ -12,12 +12,12 @@
     <header id="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo fade-in-down" style="text-decoration: none;">
-    QUANTIVE<span class="dot">.</span>
-</a>
+                QUANTIVE<span class="dot">.</span>
+            </a>
             <nav>
-                <ul class="nav-links">
+                <ul class="nav-links fade-in-down delay-1">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
                     <li><a href="resume.html">Resume</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html" class="btn-nav">Contact</a></li>
@@ -26,34 +26,79 @@
         </div>
     </header>
 
-    <section class="hero" style="min-height: 80vh;">
-        <div class="container" style="text-align: center; max-width: 800px;">
-            <span class="tagline fade-in-up">GET IN TOUCH</span>
-            <h1 class="fade-in-up delay-1" style="color: var(--navy); font-size: 3.5rem; font-family: 'Playfair Display', serif;">Let's Discuss Value.</h1>
-            <p class="subtitle fade-in-up delay-2" style="margin-top: 20px;">
-                Open for recruitment opportunities in Equity Research, IPO Analysis, and Financial Modeling.
-            </p>
+    <section class="section-padding" style="padding-top: 150px;">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">Equity Research Reports</h2>
+                <div class="line"></div>
+                <p style="text-align: center; max-width: 600px; margin: 20px auto; color: var(--text-light);">
+                    Detailed institutional-grade analysis including DCF valuation, relative valuation, and risk assessment.
+                </p>
+            </div>
 
-            <div class="about-grid fade-in-up delay-3" style="margin-top: 50px; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+            <div class="reports-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px;">
                 
-                <a href="https://www.linkedin.com/in/anshu2710" target="_blank" class="project-card" style="text-decoration: none; text-align: center; padding: 30px;">
-                    <h3 style="font-size: 1.2rem; margin-bottom: 10px;">LinkedIn</h3>
-                    <p style="font-size: 0.9rem;">Connect professionally</p>
-                </a>
+                <div class="project-card fade-in-up delay-1" id="dabur">
+                    <div class="card-status">Consumer Staples</div>
+                    <div class="card-content">
+                        <h3>Dabur India Ltd.</h3>
+                        <p class="project-desc">Comprehensive valuation analysis identifying a significant premium to intrinsic value based on growth projections.</p>
+                        <div class="metrics-grid" style="margin-top: 15px;">
+                            <div class="metric">
+                                <span class="label">Focus</span>
+                                <span class="value">Valuation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="Dabur%20India%20Ltd.%20Financial%20Report-1.pdf" target="_blank" class="btn btn-outline">Download PDF &rarr;</a>
+                    </div>
+                </div>
 
-                <a href="mailto:anshumaanverma77@gmail.com" class="project-card" style="text-decoration: none; text-align: center; padding: 30px;">
-                    <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Email</h3>
-                    <p style="font-size: 0.9rem;">anshumaanverma77@gmail.com</p>
-                </a>
+                <div class="project-card fade-in-up delay-2">
+                    <div class="card-status">Steel/Infrastructure</div>
+                    <div class="card-content">
+                        <h3>APL Apollo Tubes</h3>
+                        <p class="project-desc">Analysis of market leadership position and structural growth drivers in the structural steel tubes market.</p>
+                        <div class="metrics-grid" style="margin-top: 15px;">
+                            <div class="metric">
+                                <span class="label">Focus</span>
+                                <span class="value">Structural Growth</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="APL_Apollo_Report.pdf" target="_blank" class="btn btn-outline">Download PDF &rarr;</a>
+                    </div>
+                </div>
 
-                <a href="https://wa.me/7004253853?text=Hello" class="project-card" style="text-decoration: none; text-align: center; padding: 30px;">
-                    <h3 style="font-size: 1.2rem; margin-bottom: 10px;">WhatsApp</h3>
-                    <p style="font-size: 0.9rem;">+91 7004253853</p>
-                </a>
+                <div class="project-card fade-in-up delay-3">
+                    <div class="card-status">Pharmaceuticals</div>
+                    <div class="card-content">
+                        <h3>Caplin Point Labs</h3>
+                        <p class="project-desc">Financial health check and performance review of this niche pharmaceutical player.</p>
+                        <div class="metrics-grid" style="margin-top: 15px;">
+                            <div class="metric">
+                                <span class="label">Focus</span>
+                                <span class="value">Financial Health</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="Caplin%20Point%20Lab%20Financial%20Report-1.pdf" target="_blank" class="btn btn-outline">Download PDF &rarr;</a>
+                    </div>
+                </div>
 
             </div>
         </div>
     </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand"><h2>QUANTIVE.</h2></div>
+            <div class="copyright">&copy; 2025 Quantive. Designed by Anshumaan Verma.</div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
