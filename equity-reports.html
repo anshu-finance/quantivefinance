@@ -18,7 +18,7 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li class="dropdown">
-                    <a href="projects.html" style="cursor: pointer;">Projects ▾</a>
+                    <a href="projects.html" class="active" style="cursor: pointer;">Projects ▾</a>
                     <ul class="dropdown-menu">
                         <li><a href="equity-reports.html">Equity Research Reports</a></li>
                         <li><a href="mf-analysis.html">Mutual Fund Analysis</a></li>
@@ -26,7 +26,7 @@
                     </ul>
                 </li>
                 <li><a href="resume.html">Resume</a></li>
-                <li><a href="blog.html" class="active">Blogs</a></li>
+                <li><a href="blog.html">Blogs</a></li>
                 <li><a href="contact.html" class="btn-nav">Get In Touch</a></li>
             </ul>
         </div>
@@ -37,25 +37,17 @@
             <div class="section-header fade-in-up">
                 <h2 class="section-title">Equity Research Reports</h2>
                 <div class="line"></div>
-                <p style="text-align: center; max-width: 600px; margin: 20px auto; color: var(--text-light);">
-                    Detailed institutional-grade analysis including DCF valuation, relative valuation, and risk assessment.
-                </p>
             </div>
+            <p class="fade-in-up" style="max-width: 600px; margin-bottom: 50px;">
+                Detailed institutional-grade analysis including DCF valuation, relative valuation, and risk assessment.
+            </p>
 
-            <div class="reports-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px;">
+            <div class="reports-grid">
                 
-                <div class="project-card fade-in-up delay-1" id="dabur">
+                <div class="project-card fade-in-up delay-1">
                     <div class="card-status">Consumer Staples</div>
-                    <div class="card-content">
-                        <h3>Dabur India Ltd.</h3>
-                        <p class="project-desc">Comprehensive valuation analysis identifying a significant premium to intrinsic value based on growth projections.</p>
-                        <div class="metrics-grid" style="margin-top: 15px;">
-                            <div class="metric">
-                                <span class="label">Focus</span>
-                                <span class="value">Valuation</span>
-                            </div>
-                        </div>
-                    </div>
+                    <h3>Dabur India Ltd.</h3>
+                    <p class="project-desc">Comprehensive valuation analysis identifying a significant premium to intrinsic value based on growth projections.</p>
                     <div class="card-action">
                         <a href="Dabur%20India%20Ltd.%20Financial%20Report-1.pdf" target="_blank" class="btn btn-outline">Download PDF &rarr;</a>
                     </div>
@@ -63,16 +55,8 @@
 
                 <div class="project-card fade-in-up delay-2">
                     <div class="card-status">Steel/Infrastructure</div>
-                    <div class="card-content">
-                        <h3>APL Apollo Tubes</h3>
-                        <p class="project-desc">Analysis of market leadership position and structural growth drivers in the structural steel tubes market.</p>
-                        <div class="metrics-grid" style="margin-top: 15px;">
-                            <div class="metric">
-                                <span class="label">Focus</span>
-                                <span class="value">Structural Growth</span>
-                            </div>
-                        </div>
-                    </div>
+                    <h3>APL Apollo Tubes</h3>
+                    <p class="project-desc">Analysis of market leadership position and structural growth drivers in the structural steel tubes market.</p>
                     <div class="card-action">
                         <a href="APL_Apollo_Report.pdf" target="_blank" class="btn btn-outline">Download PDF &rarr;</a>
                     </div>
@@ -80,16 +64,8 @@
 
                 <div class="project-card fade-in-up delay-3">
                     <div class="card-status">Pharmaceuticals</div>
-                    <div class="card-content">
-                        <h3>Caplin Point Labs</h3>
-                        <p class="project-desc">Financial health check and performance review of this niche pharmaceutical player.</p>
-                        <div class="metrics-grid" style="margin-top: 15px;">
-                            <div class="metric">
-                                <span class="label">Focus</span>
-                                <span class="value">Financial Health</span>
-                            </div>
-                        </div>
-                    </div>
+                    <h3>Caplin Point Labs</h3>
+                    <p class="project-desc">Financial health check and performance review of this niche pharmaceutical player.</p>
                     <div class="card-action">
                         <a href="Caplin%20Point%20Lab%20Financial%20Report-1.pdf" target="_blank" class="btn btn-outline">Download PDF &rarr;</a>
                     </div>
@@ -99,15 +75,6 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-brand"><h2>QUANTIVE.</h2></div>
-            <div class="copyright">&copy; 2025 Quantive. Designed by Anshumaan Verma.</div>
-        </div>
-    </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
-
-
