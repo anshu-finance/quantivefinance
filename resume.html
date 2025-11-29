@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header>
         <div class="nav-container">
             <a href="index.html" class="logo">QUANTIVE<span style="color: #2563eb;">.</span></a>
@@ -24,41 +25,38 @@
                         <li><a href="ipo-analysis.html">IPO Analysis Reports</a></li>
                     </ul>
                 </li>
-                <li><a href="resume.html">Resume</a></li>
-                <li><a href="blog.html" class="active">Blogs</a></li>
+                <li><a href="resume.html" class="active">Resume</a></li>
+                <li><a href="blog.html">Blogs</a></li>
                 <li><a href="contact.html" class="btn-nav">Get In Touch</a></li>
             </ul>
         </div>
     </header>
 
-    <section class="section-padding" style="padding-top: 150px;">
-        <div class="container fade-in-up" style="text-align: center;">
-            <div class="section-header" style="justify-content: center;">
-                <h2 class="section-title">Professional Resume</h2>
+    <section class="section-padding" style="padding-top: 150px; min-height: 80vh; display: flex; align-items: center;">
+        <div class="container" style="text-align: center;">
+            <div class="section-header fade-in-up" style="display: block; margin: 0 auto;">
+                <h2 class="section-title">My Resume</h2>
+                <div class="line" style="margin: 10px auto;"></div>
             </div>
-            
-            <p style="margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                A summary of my academic background, NISM certifications, and analytical experience.
+
+            <p class="fade-in-up" style="max-width: 600px; margin: 0 auto 40px auto; color: var(--text-gray);">
+                Professional experience in Financial Modeling, Equity Research, and Valuation Analysis.
             </p>
 
-            <a href="resume.pdf" download class="btn btn-primary" style="margin-bottom: 40px;">Download PDF Version &darr;</a>
-
-            <div style="background: white; padding: 10px; box-shadow: var(--shadow-soft); border-radius: 12px; height: 800px;" class="reveal">
-                <iframe src="resume.pdf" width="100%" height="100%" style="border: none; border-radius: 8px;">
-                    <p>Your browser does not support PDFs. <a href="resume.pdf">Download the PDF</a>.</p>
+            <div class="fade-in-up delay-1">
+                <a href="resume.pdf" target="_blank" class="btn btn-primary" style="padding: 15px 40px; font-size: 1.1rem;">
+                    Download / View Resume PDF
+                </a>
+            </div>
+            
+            <div class="fade-in-up delay-2" style="margin-top: 50px;">
+                <iframe src="resume.pdf" width="100%" height="600px" style="border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: var(--shadow-soft);">
                 </iframe>
             </div>
+
         </div>
     </section>
 
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-brand"><h2>QUANTIVE.</h2></div>
-            <div class="copyright">&copy; 2025 Quantive.</div>
-        </div>
-    </footer>
     <script src="script.js"></script>
 </body>
 </html>
-
-
