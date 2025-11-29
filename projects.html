@@ -8,28 +8,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header>
         <div class="nav-container">
             <a href="index.html" class="logo">QUANTIVE<span style="color: #2563eb;">.</span></a>
-            
             <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
             </div>
-
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                
                 <li class="dropdown">
-                    <a href="projects.html" style="cursor: pointer;">Projects ▾</a>
+                    <a href="projects.html" class="active" style="cursor: pointer;">Projects ▾</a>
                     <ul class="dropdown-menu">
                         <li><a href="equity-reports.html">Equity Research Reports</a></li>
                         <li><a href="mf-analysis.html">Mutual Fund Analysis</a></li>
                         <li><a href="ipo-analysis.html">IPO Analysis Reports</a></li>
                     </ul>
                 </li>
-
                 <li><a href="blog.html">Blogs</a></li>
                 <li><a href="contact.html" class="btn-nav">Get In Touch</a></li>
             </ul>
@@ -44,37 +39,30 @@
             </div>
 
             <div class="category-grid">
-    <a href="equity-reports.html" class="category-card">
-        <div class="icon-box"><span style="font-size: 2.5rem;">📈</span></div>
-        <h3>Equity Research Reports</h3>
-        <p>In-depth valuation models (DCF) and fundamental analysis on listed companies.</p>
-        <span class="card-link">View Models &rarr;</span>
-    </a>
+                <a href="equity-reports.html" class="category-card fade-in-up delay-1" style="text-decoration: none;">
+                    <div class="icon-box">📈</div>
+                    <h3>Equity Research Reports</h3>
+                    <p style="color: #475569; margin-bottom: 15px;">In-depth valuation models (DCF) and fundamental analysis on listed companies.</p>
+                    <span class="card-link">View Models &rarr;</span>
+                </a>
 
-    <a href="mf-analysis.html" class="category-card">
-        <div class="icon-box"><span style="font-size: 2.5rem;">💰</span></div>
-        <h3>Mutual Fund Analysis</h3>
-        <p>Performance review, Sharpe ratios, and holdings breakdown of leading funds.</p>
-        <span class="card-link">View Reviews &rarr;</span>
-    </a>
+                <a href="mf-analysis.html" class="category-card fade-in-up delay-2" style="text-decoration: none;">
+                    <div class="icon-box">💰</div>
+                    <h3>Mutual Fund Analysis</h3>
+                    <p style="color: #475569; margin-bottom: 15px;">Performance review, Sharpe ratios, and holdings breakdown of leading funds.</p>
+                    <span class="card-link">View Reviews &rarr;</span>
+                </a>
 
-    <a href="ipo-analysis.html" class="category-card">
-        <div class="icon-box"><span style="font-size: 2.5rem;">🚀</span></div>
-        <h3>IPO Analysis Framework</h3>
-        <p>Methodology for reviewing DRHPs, identifying risks, and valuation insights.</p>
-        <span class="card-link">View Insights &rarr;</span>
-    </a>
-</div>
+                <a href="ipo-analysis.html" class="category-card fade-in-up delay-3" style="text-decoration: none;">
+                    <div class="icon-box">🚀</div>
+                    <h3>IPO Analysis Framework</h3>
+                    <p style="color: #475569; margin-bottom: 15px;">Methodology for reviewing DRHPs, identifying risks, and valuation insights.</p>
+                    <span class="card-link">View Insights &rarr;</span>
+                </a>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-brand"><h2>QUANTIVE.</h2></div>
-            <div class="copyright">&copy; 2025 Quantive. Designed by Anshumaan Verma.</div>
-        </div>
-    </footer>
     <script src="script.js"></script>
 </body>
 </html>
-
