@@ -351,3 +351,87 @@ footer {
     .nav-links { display: none; }
     .hero h1 { font-size: 2.5rem; }
 }
+
+/* =========================================
+   MOBILE FIX PATCH (Responive Design)
+   ========================================= */
+
+/* This rule ensures images never overflow the screen width */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* This is where the magic happens for screens smaller than 768px (Mobiles/Tablets) */
+@media screen and (max-width: 768px) {
+
+    /* 1. STACK THE MENU 
+       Instead of a horizontal bar, we stack links vertically so they are easy to tap. */
+    .nav-container {
+        flex-direction: column;
+        padding: 15px 0;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the text */
+        gap: 15px; /* Space between links */
+        margin-top: 15px;
+        padding: 0;
+        background-color: white; /* Make text readable */
+        width: 100%;
+    }
+
+    /* 2. STACK THE GRIDS 
+       This forces the "side-by-side" layouts (Hero, About, Projects) to stack top-to-bottom. */
+    .hero-grid, 
+    .about-grid, 
+    .category-grid, 
+    .reports-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    /* 3. FIX TEXT SIZES 
+       Make giant headlines smaller so they fit the phone screen. */
+    h1 {
+        font-size: 2.2rem !important; /* Smaller main title */
+        line-height: 1.2;
+    }
+    
+    h2.section-title {
+        font-size: 1.8rem !important;
+    }
+
+    /* 4. FIX PADDING & SPACING 
+       Add breathing room on the sides so text doesn't touch the phone edges. */
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* 5. CENTER IMAGES */
+    .hero-image-container, 
+    .about-visual {
+        order: -1; /* Puts image ON TOP of text for mobile */
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .profile-hero, 
+    .about-img {
+        width: 70%; /* Make profile picture a bit smaller */
+        margin: 0 auto;
+    }
+    
+    /* 6. FIX PROJECTS PADDING 
+       Overrides the "padding-top: 150px" which is too big for mobile */
+    section[style*="padding-top"] {
+        padding-top: 100px !important;
+    }
+}
