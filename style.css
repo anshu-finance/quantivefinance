@@ -368,3 +368,46 @@ img { max-width: 100%; height: auto; }
     0%, 100% { transform: translate(0, 0) rotate(5deg); }
     50% { transform: translate(-15px, 10px) rotate(3deg); }
 }
+
+/* --- NISM CERTIFICATE FRAME STYLES --- */
+
+/* Wrapper for the certificate image */
+.certificate-frame {
+    width: 90%; 
+    max-width: 300px;
+    margin-top: 30px;
+    padding: 10px;
+    background: white;
+    border-radius: 12px;
+    /* NISM Green Frame */
+    border: 3px solid #10b981; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    overflow: hidden;
+    position: relative;
+    /* Subtle Floating Animation */
+    animation: float-cert 7s ease-in-out infinite;
+}
+
+.certificate-frame img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+}
+
+/* NISM-Specific Floating Animation */
+@keyframes float-cert {
+    0%, 100% { transform: translateY(0px) translateX(-5px); }
+    50% { transform: translateY(-10px) translateX(5px); }
+}
+
+/* Mobile Adjustment: Remove side float on small screens */
+@media screen and (max-width: 768px) {
+    .certificate-frame {
+        width: 100%; 
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+        animation: none; /* Mobile par sirf stack hoga, float nahi */
+    }
+}
