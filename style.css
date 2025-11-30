@@ -3,7 +3,7 @@
    ========================================= */
 :root {
     --bg-color: #f8fafc;        
-    --card-bg: rgba(255, 255, 255, 0.9); /* Glass effect */      
+    --card-bg: rgba(255, 255, 255, 0.9);
     --navy: #0f172a;            
     --primary-blue: #2563eb;   
     --secondary-blue: #1e40af; 
@@ -27,397 +27,150 @@ body {
 
 /* --- BACKGROUND ANIMATION (The "Alive" Feel) --- */
 body::before {
-    content: '';
-    position: fixed;
-    top: -10%; left: -10%;
+    content: ''; position: fixed; top: -10%; left: -10%;
     width: 50vw; height: 50vw;
     background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, rgba(255,255,255,0) 70%);
-    border-radius: 50%;
-    filter: blur(60px);
-    z-index: -1;
+    border-radius: 50%; filter: blur(60px); z-index: -1;
     animation: drift-1 20s infinite alternate ease-in-out;
 }
-
 body::after {
-    content: '';
-    position: fixed;
-    bottom: -10%; right: -10%;
+    content: ''; position: fixed; bottom: -10%; right: -10%;
     width: 60vw; height: 60vw;
     background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, rgba(255,255,255,0) 70%);
-    border-radius: 50%;
-    filter: blur(80px);
-    z-index: -1;
+    border-radius: 50%; filter: blur(80px); z-index: -1;
     animation: drift-2 25s infinite alternate-reverse ease-in-out;
 }
-
 @keyframes drift-1 { from { transform: translate(0,0); } to { transform: translate(30px, 50px); } }
 @keyframes drift-2 { from { transform: translate(0,0); } to { transform: translate(-30px, -50px); } }
 
 /* =========================================
-   2. NAVBAR & HAMBURGER (The Fix)
+   2. NAVBAR, UTILITIES, & TYPOGRAPHY
    ========================================= */
 header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.85); 
-    backdrop-filter: blur(12px); /* Frosted Glass */
-    z-index: 1000;
-    height: 70px;
+    position: fixed; top: 0; width: 100%; height: 70px; z-index: 1000;
+    background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); 
     box-shadow: 0 2px 20px rgba(0,0,0,0.05);
 }
-
 .nav-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width: 90%; max-width: 1200px; margin: 0 auto; height: 100%;
+    display: flex; justify-content: space-between; align-items: center;
 }
-
 .logo {
-    color: var(--navy);
-    font-weight: 700;
-    font-size: 1.5rem;
-    font-family: 'Playfair Display', serif;
-    text-decoration: none;
-    letter-spacing: 1px;
+    color: var(--navy); font-weight: 700; font-size: 1.5rem;
+    font-family: 'Playfair Display', serif; text-decoration: none; letter-spacing: 1px;
 }
 
+/* Nav Links */
 .nav-links { display: flex; gap: 30px; align-items: center; list-style: none; }
-.nav-links a {
-    color: var(--navy);
-    font-weight: 500;
-    text-decoration: none;
-    font-size: 0.95rem;
-    position: relative;
-    transition: color 0.3s;
-}
+.nav-links a { color: var(--navy); font-weight: 500; text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
 .nav-links a:hover { color: var(--primary-blue); }
 
-/* DROPDOWN MENU */
+/* Dropdown */
 .dropdown { position: relative; }
 .dropdown-menu {
-    position: absolute;
-    top: 100%; left: 0;
-    background: white;
-    width: 240px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    opacity: 0; visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
-    padding: 10px 0;
-    border: 1px solid #f1f5f9;
+    position: absolute; top: 100%; left: 0; background: white; width: 240px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 8px; opacity: 0; visibility: hidden;
+    transform: translateY(10px); transition: all 0.3s ease; padding: 10px 0; border: 1px solid #f1f5f9;
 }
-.dropdown:hover .dropdown-menu {
-    opacity: 1; visibility: visible; transform: translateY(0);
-}
+.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
 .dropdown-menu li a { display: block; padding: 12px 20px; font-size: 0.9rem; color: var(--text-gray); }
-.dropdown-menu li a:hover { background: #f8fafc; color: var(--primary-blue); padding-left: 25px; /* Slide effect */ }
 
-/* HAMBURGER ICON */
+/* Hamburger */
 .hamburger { display: none; cursor: pointer; }
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--navy); transition: all 0.3s ease-in-out; }
 
+/* Buttons */
+.btn { display: inline-block; padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: 0.3s; }
+.btn-primary { background-color: var(--primary-blue); color: white; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3); }
+.btn-secondary { border: 1px solid var(--navy); color: var(--navy); margin-left: 20px; }
+.btn-secondary:hover { background-color: var(--navy); color: white; transform: translateY(-3px); }
+.btn-nav { border: 1px solid var(--primary-blue); color: var(--primary-blue) !important; padding: 8px 20px; border-radius: 6px;}
+
+/* Utils & Base */
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+.section-padding { padding: 100px 0; }
+h1, h2, h3 { color: var(--navy); font-family: 'Playfair Display', serif; }
+.line { width: 60px; height: 3px; background: var(--primary-blue); margin-top: 10px; border-radius: 2px; }
+img { max-width: 100%; height: auto; }
+
 /* =========================================
-   3. MOBILE STYLES (The Drawer)
+   3. HERO & CARD STYLES
    ========================================= */
+
+/* Hero Text Box */
+.intro-box {
+    background: rgba(255, 255, 255, 0.6); border-left: 4px solid var(--primary-blue);
+    padding: 20px; border-radius: 0 12px 12px 0; margin: 25px 0; backdrop-filter: blur(5px);
+}
+.problem-statement { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 10px; }
+.solution-statement { font-size: 1.2rem; font-weight: 700; color: var(--navy); }
+
+/* Card Styles */
+.project-card, .category-card, .about-card {
+    background-color: var(--card-bg); padding: 35px; border-radius: 16px;
+    box-shadow: var(--shadow-soft); border: 1px solid rgba(255,255,255,0.6);
+    transition: all 0.3s ease; position: relative; overflow: hidden;
+}
+.project-card:hover, .category-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); border-color: var(--primary-blue); }
+
+/* Floating Profile */
+.profile-card-container { position: relative; width: 350px; height: 450px; margin: 0 auto; }
+.profile-card-img {
+    width: 100%; height: 100%; object-fit: cover; border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 20px 50px rgba(37, 99, 235, 0.2);
+    z-index: 2; position: relative; animation: float-main 6s ease-in-out infinite;
+}
+.float-badge {
+    position: absolute; background: rgba(255, 255, 255, 0.9); padding: 10px 18px; border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); font-weight: 600; font-size: 0.85rem;
+    color: var(--navy); display: flex; align-items: center; gap: 8px; z-index: 3;
+    border: 1px solid rgba(37, 99, 235, 0.1);
+}
+.badge-1 { top: 40px; right: -30px; animation: float-badge-1 5s ease-in-out infinite; }
+.badge-2 { bottom: 60px; left: -40px; animation: float-badge-2 7s ease-in-out infinite; }
+
+/* NISM Achievement Frame */
+.certificate-frame {
+    /* Base Frame Styling */
+    padding: 15px; border: 4px solid #FFD700; background: #fffafa; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(255, 215, 0, 0.5);
+    border-radius: 12px; overflow: hidden; position: relative;
+    animation: float-cert 7s ease-in-out infinite;
+}
+.certificate-frame img { border-radius: 6px; }
+
+/* Animations Keyframes */
+@keyframes float-main { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+@keyframes float-badge-1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-10px, -20px); } }
+@keyframes float-badge-2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(10px, -15px); } }
+@keyframes float-cert { 0%, 100% { transform: translateY(0px) translateX(-5px); } 50% { transform: translateY(-10px) translateX(5px); } }
+
+/* =========================================
+   4. RESPONSIVE GRID CONTROL (The Fix)
+   ========================================= */
+
+/* Mobile (Below 900px) */
 @media screen and (max-width: 900px) {
+    /* Menu Stacking */
     .hamburger { display: block; }
     .nav-links {
-        position: fixed; left: -100%; top: 70px;
-        flex-direction: column; background-color: white;
-        width: 100%; height: calc(100vh - 70px);
-        transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        padding: 30px; align-items: flex-start; overflow-y: auto;
+        position: fixed; left: -100%; top: 70px; flex-direction: column; background-color: white;
+        width: 100%; height: calc(100vh - 70px); transition: 0.3s; padding: 30px; align-items: flex-start;
     }
     .nav-links.active { left: 0; }
     .nav-links li { width: 100%; margin: 10px 0; }
+    .dropdown-menu { position: static; opacity: 1; visibility: visible; transform: none; padding-left: 20px; border-left: 2px solid #e2e8f0; display: block; }
     
-    /* Mobile Dropdown Always Open */
-    .dropdown-menu {
-        position: static; opacity: 1; visibility: visible; transform: none;
-        box-shadow: none; width: 100%; border: none; padding-left: 20px;
-        border-left: 2px solid #e2e8f0; margin-top: 10px; display: block;
-    }
-    
-    /* Hamburger Animation */
-    .hamburger.active .bar:nth-child(2) { opacity: 0; }
-    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-    /* Fix Grid Stacking */
-    .hero-grid, .about-grid, .category-grid, .reports-grid {
-        display: flex; flex-direction: column; gap: 40px;
-    }
+    /* Layout Stacking */
+    .hero-grid, .about-grid, .category-grid, .reports-grid { display: flex; flex-direction: column; gap: 40px; }
     .hero-image-container, .about-visual { order: -1; display: flex; justify-content: center; }
-    .profile-hero { width: 80%; }
-    h1 { font-size: 2.2rem !important; }
-}
-
-/* =========================================
-   4. CARDS & TILES (The "Alive" Content)
-   ========================================= */
-.container { width: 90%; max-width: 1200px; margin: 0 auto; }
-.section-padding { padding: 100px 0; }
-
-/* General Card Style */
-.project-card, .category-card, .about-card {
-    background-color: var(--card-bg);
-    padding: 35px;
-    border-radius: 16px;
-    box-shadow: var(--shadow-soft);
-    border: 1px solid rgba(255,255,255,0.6);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Hover Effects */
-.project-card:hover, .category-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--primary-blue);
-}
-
-/* Grids */
-.category-grid, .reports-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
-}
-
-/* Icons in Cards */
-.icon-box {
-    width: 60px; height: 60px;
-    background: rgba(37, 99, 235, 0.1);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-}
-
-/* Links inside Cards */
-.card-link, .btn-outline {
-    display: inline-block;
-    margin-top: 20px;
-    color: var(--primary-blue);
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-decoration: none;
-}
-.card-link:hover { transform: translateX(5px); } /* Little slide arrow */
-
-/* =========================================
-   5. BUTTONS & TYPOGRAPHY
-   ========================================= */
-.btn {
-    display: inline-block; padding: 14px 28px;
-    border-radius: 8px; font-weight: 600; text-decoration: none;
-    transition: 0.3s;
-}
-.btn-primary {
-    background-color: var(--primary-blue); color: white;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-}
-.btn-primary:hover { transform: translateY(-3px); background-color: var(--secondary-blue); }
-
-.btn-nav {
-    border: 1px solid var(--primary-blue);
-    color: var(--primary-blue) !important;
-    padding: 8px 20px; border-radius: 6px;
-}
-.btn-nav:hover { background: var(--primary-blue); color: white !important; }
-
-h1, h2, h3 { color: var(--navy); font-family: 'Playfair Display', serif; }
-h2.section-title { font-size: 2.2rem; margin-bottom: 20px; position: relative; display: inline-block; }
-.line { width: 60px; height: 3px; background: var(--primary-blue); margin-top: 10px; border-radius: 2px; }
-
-/* Images */
-img { max-width: 100%; height: auto; }
-.profile-hero {
-    border-radius: 20px;
-    box-shadow: 20px 20px 0 rgba(37, 99, 235, 0.1);
-}
-
-/* Animations */
-.fade-in-up { opacity: 0; animation: fadeInUp 0.8s forwards; }
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-
-/* --- NEW HERO SECTION STYLES --- */
-
-/* The Floating Card Container */
-.profile-card-container {
-    position: relative;
-    width: 350px;
-    height: 450px;
-    margin: 0 auto;
-}
-
-/* The Main Profile Image */
-.profile-card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 24px;
-    /* Glass border effect */
-    border: 1px solid rgba(255, 255, 255, 0.5); 
-    box-shadow: 0 20px 50px rgba(37, 99, 235, 0.2); /* Soft blue shadow */
-    z-index: 2;
-    position: relative;
-    /* Floating Animation */
-    animation: float-main 6s ease-in-out infinite;
-}
-
-/* Floating Badges (The "Alive" Elements) */
-.float-badge {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 10px 18px;
-    border-radius: 50px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    font-weight: 600;
-    font-size: 0.85rem;
-    color: var(--navy);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    z-index: 3;
-    border: 1px solid rgba(37, 99, 235, 0.1);
-}
-
-/* Badge Positions & Specific Animations */
-.badge-1 {
-    top: 40px; right: -30px;
-    animation: float-badge-1 5s ease-in-out infinite;
-}
-
-.badge-2 {
-    bottom: 60px; left: -40px;
-    animation: float-badge-2 7s ease-in-out infinite;
-}
-
-/* Intro Text Styling */
-.intro-box {
-    background: rgba(255, 255, 255, 0.6);
-    border-left: 4px solid var(--primary-blue);
-    padding: 20px;
-    border-radius: 0 12px 12px 0;
-    margin: 25px 0;
-    backdrop-filter: blur(5px);
-}
-
-.problem-statement {
-    font-size: 1.1rem;
-    color: var(--text-gray);
-    margin-bottom: 10px;
-}
-
-.solution-statement {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--navy);
-}
-
-/* --- ANIMATIONS --- */
-@keyframes float-main {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-}
-
-@keyframes float-badge-1 {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(-10px, -20px); }
-}
-
-@keyframes float-badge-2 {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(10px, -15px); }
-}
-
-/* Mobile Adjustments */
-@media screen and (max-width: 768px) {
     .profile-card-container { width: 280px; height: 360px; margin-top: 40px; }
-    .badge-1 { right: -10px; }
-    .badge-2 { left: -10px; }
+    .certificate-frame { animation: none; max-width: 100%; } /* Disable float on mobile */
+    .hero-text h1 { font-size: 2.2rem !important; }
 }
 
-/* --- New Badge Position for NISM Certificate --- */
-
-.badge-3 {
-    top: 55%; 
-    right: -50px; /* Right Side */
-    transform: rotate(5deg); /* Certification Frame Tilt */
-    animation: float-badge-3 6s ease-in-out infinite;
-}
-
-/* NISM-Specific Animation */
-@keyframes float-badge-3 {
-    0%, 100% { transform: translate(0, 0) rotate(5deg); }
-    50% { transform: translate(-15px, 10px) rotate(3deg); }
-}
-
-/* --- NISM CERTIFICATE FRAME STYLES --- */
-
-/* Wrapper for the certificate image */
-.certificate-frame {
-    width: 90%; 
-    max-width: 300px;
-    margin-top: 30px;
-    padding: 10px;
-    background: white;
-    border-radius: 12px;
-    /* NISM Green Frame */
-    border: 3px solid #10b981; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    overflow: hidden;
-    position: relative;
-    /* Subtle Floating Animation */
-    animation: float-cert 7s ease-in-out infinite;
-}
-
-.certificate-frame img {
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-    display: block;
-}
-
-/* NISM-Specific Floating Animation */
-@keyframes float-cert {
-    0%, 100% { transform: translateY(0px) translateX(-5px); }
-    50% { transform: translateY(-10px) translateX(5px); }
-}
-
-/* Mobile Adjustment: Remove side float on small screens */
-@media screen and (max-width: 768px) {
-    .certificate-frame {
-        width: 100%; 
-        max-width: 280px;
-        margin-left: auto;
-        margin-right: auto;
-        animation: none; /* Mobile par sirf stack hoga, float nahi */
-    }
-}
-
-/* =========================================
-   FINAL 4X2 GRID LAYOUT (Desktop Only)
-   ========================================= */
-
+/* Desktop (Above 1200px) - FINAL 4x2 GRID DEFINITION */
 @media screen and (min-width: 1200px) {
-    /* Main container definition: 4 equal columns */
     .hero-grid {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr; /* 4 equal columns */
@@ -427,7 +180,7 @@ img { max-width: 100%; height: auto; }
         padding-bottom: 80px;
         width: 100%;
         max-width: 1400px; 
-        margin: 0 auto; /* Center the larger grid */
+        margin: 0 auto; 
     }
 
     /* 1. Top Left (Intro/Text) - Spans 3 columns */
@@ -437,36 +190,40 @@ img { max-width: 100%; height: auto; }
         padding-right: 20px;
     }
 
-    /* 2. Top Right (Picture/Profile) - Spans 1 column, 2 rows */
+    /* 2. Top Right (Picture) - Spans 1 column, 2 rows */
     .hero-image-container {
         grid-column: 4 / 5;
-        grid-row: 1 / 3; /* Spans both rows (Top Right + Bottom Right space) */
+        grid-row: 1 / 3; 
         align-items: flex-end;
         justify-content: flex-start;
         padding-top: 0;
         height: 100%;
     }
 
-    /* 3. Bottom Left (Certificate) - Spans 1 column */
+    /* 3. Bottom Left (Certificate) - SPANS 2 COLUMNS (Your New Idea) */
     .certificate-frame {
-        grid-column: 1 / 2;
+        grid-column: 1 / span 2; /* Spans columns 1 and 2 */
         grid-row: 2 / 3;
         width: 100%;
-        max-width: none; /* Let the grid manage width */
+        max-width: 450px; /* NEW SIZE CONTROL: Make it slightly smaller than the 50% max width */
         margin: 0; 
-        top: 0; 
-        right: 0;
         position: relative !important;
         transform: none !important;
-        /* Re-apply floating animation without absolute positioning */
         animation: float-cert 7s ease-in-out infinite !important;
-        
     }
-
-    /* 4. Bottom Right (Mystery Box/CTA) - Spans 3 columns */
+    
+    /* 4. Bottom Right (Mystery Box/CTA) - SPANS 2 COLUMNS */
     .cta-value-box-wrapper { 
-        grid-column: 2 / 5;
+        grid-column: 3 / 5; /* Spans columns 3 and 4 */
         grid-row: 2 / 3;
         width: 100%;
+    }
+    
+    /* Adjustments for floating elements that span two rows */
+    .profile-card-container {
+        position: sticky; /* Make the picture stick in the top half */
+        top: 100px;
+        width: 100%;
+        max-width: 350px;
     }
 }
