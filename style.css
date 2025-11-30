@@ -1,5 +1,5 @@
 /* =========================================
-   1. RESET & VARIABLES
+   1. VARIABLES & RESET
    ========================================= */
 :root {
     --bg-color: #f8fafc;        
@@ -27,7 +27,7 @@ body::after { content: ''; position: fixed; bottom: -10%; right: -10%; width: 60
 @keyframes drift-2 { from { transform: translate(0,0); } to { transform: translate(-30px, -50px); } }
 
 /* =========================================
-   2. HEADER & NAVIGATION
+   2. HEADER & ANIMATED NAVIGATION
    ========================================= */
 header {
     position: fixed; top: 0; width: 100%; height: 70px; z-index: 1000;
@@ -38,42 +38,83 @@ header {
 
 /* Desktop Menu Styles */
 .nav-links { display: flex; gap: 30px; align-items: center; list-style: none; }
-.nav-links a { color: var(--navy); font-weight: 500; text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
+.nav-links a { 
+    color: var(--navy); font-weight: 500; text-decoration: none; font-size: 0.95rem; 
+    position: relative; transition: color 0.3s; 
+}
 .nav-links a:hover { color: var(--primary-blue); }
+
+/* The Soul: Underline Hover Animation */
+.nav-links a::after {
+    content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0;
+    background-color: var(--primary-blue); transition: width 0.3s ease;
+}
+.nav-links a:hover::after { width: 100%; }
 
 /* Dropdown Menu */
 .dropdown { position: relative; }
 .dropdown-menu {
-    position: absolute; top: 100%; right: 0; left: auto; /* Fixes Left Alignment Issue */
+    position: absolute; top: 100%; right: 0; left: auto;
     background: white; width: 240px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 8px; 
     opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; padding: 10px 0; border: 1px solid #f1f5f9;
 }
 .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
 .dropdown-menu li a { display: block; padding: 12px 20px; font-size: 0.9rem; color: var(--text-gray); }
+.dropdown-menu li a:hover { background-color: #f8fafc; color: var(--primary-blue); padding-left: 25px; /* Slide effect */ }
+/* Remove underline from dropdown items to keep it clean */
+.dropdown-menu li a::after { display: none; }
 
-/* Hamburger Icon (Hidden on Desktop) */
+/* Hamburger Icon */
 .hamburger { display: none; cursor: pointer; }
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--navy); transition: all 0.3s ease-in-out; }
 
 /* =========================================
-   3. COMPONENTS & CARDS
+   3. BUTTONS & INTERACTIVE ELEMENTS
    ========================================= */
-.btn { display: inline-block; padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: 0.3s; }
-.btn-primary { background-color: var(--primary-blue); color: white; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3); }
-.btn-secondary { border: 1px solid var(--navy); color: var(--navy); margin-left: 20px; }
-.btn-nav { border: 1px solid var(--primary-blue); color: var(--primary-blue) !important; padding: 8px 20px; border-radius: 6px;}
+/* Base Button */
+.btn { 
+    display: inline-block; padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; 
+    transition: all 0.3s ease; position: relative; overflow: hidden;
+}
 
+/* Primary Button (Blue) */
+.btn-primary { background-color: var(--primary-blue); color: white; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3); }
+.btn-primary:hover { 
+    background-color: var(--secondary-blue); 
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4); 
+}
+
+/* Secondary Button (Outline) */
+.btn-secondary { border: 1px solid var(--navy); color: var(--navy); margin-left: 20px; }
+.btn-secondary:hover { 
+    background-color: var(--navy); color: white; 
+    transform: translateY(-3px); 
+}
+
+/* Nav Button (Get In Touch) */
+.btn-nav { border: 1px solid var(--primary-blue); color: var(--primary-blue) !important; padding: 8px 20px; border-radius: 6px;}
+.btn-nav:hover { background-color: var(--primary-blue); color: white !important; }
+.btn-nav::after { display: none; } /* No underline for button */
+
+/* =========================================
+   4. CARDS & UTILS
+   ========================================= */
 .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 .section-padding { padding: 100px 0; }
 h1, h2, h3 { color: var(--navy); font-family: 'Playfair Display', serif; }
 img { max-width: 100%; height: auto; }
 
-/* Cards */
+/* Cards Hover Animation */
 .project-card, .category-card {
     background-color: var(--card-bg); padding: 35px; border-radius: 16px; box-shadow: var(--shadow-soft);
     border: 1px solid rgba(255,255,255,0.6); transition: all 0.3s ease; position: relative; overflow: hidden;
 }
-.project-card:hover, .category-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); border-color: var(--primary-blue); }
+.project-card:hover, .category-card:hover { 
+    transform: translateY(-10px); 
+    box-shadow: var(--shadow-hover); 
+    border-color: var(--primary-blue); 
+}
 
 /* Profile & Badges */
 .profile-card-container { position: relative; width: 350px; height: 450px; margin: 0 auto; }
@@ -107,10 +148,9 @@ img { max-width: 100%; height: auto; }
 @keyframes float-cert { 0%, 100% { transform: translateY(0px) translateX(-5px); } 50% { transform: translateY(-10px) translateX(5px); } }
 
 /* =========================================
-   4. MOBILE VIEW (Max-Width: 900px)
+   5. RESPONSIVE LAYOUT (Mobile)
    ========================================= */
 @media screen and (max-width: 900px) {
-    /* 1. RESTORE HAMBURGER MENU */
     .hamburger { display: block; }
     .nav-links {
         position: fixed; left: -100%; top: 70px; flex-direction: column; background-color: white;
@@ -119,30 +159,25 @@ img { max-width: 100%; height: auto; }
     }
     .nav-links.active { left: 0; }
     .nav-links li { width: 100%; margin: 10px 0; }
+    /* Mobile Dropdown Fix */
     .dropdown-menu { position: static; opacity: 1; visibility: visible; transform: none; padding-left: 20px; border-left: 2px solid #e2e8f0; display: block; width: 100%; box-shadow: none;}
-
-    /* Hamburger Animation */
-    .hamburger.active .bar:nth-child(2) { opacity: 0; }
-    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-    /* 2. FORCE STACKING FOR CARDS (Mobile Only) */
-    .hero-grid, .category-grid, .reports-grid { 
-        display: flex !important; 
-        flex-direction: column; 
-        gap: 40px; 
-    }
+    
+    /* Layout Stacking */
+    .hero-grid, .category-grid, .reports-grid { display: flex !important; flex-direction: column; gap: 40px; }
     .hero-image-container { order: -1; display: flex; justify-content: center; }
     .profile-card-container { width: 280px; height: 360px; margin-top: 40px; }
     .certificate-frame { animation: none; max-width: 100%; }
     .hero-text h1 { font-size: 2.2rem !important; }
+    
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
 
 /* =========================================
-   5. DESKTOP VIEW (Min-Width: 901px)
+   6. DESKTOP GRID (Min-Width: 901px)
    ========================================= */
 @media screen and (min-width: 901px) {
-    /* 1. FORCE GRID LAYOUT (Fixes the PC Stacking Issue) */
     .category-grid, .reports-grid {
         display: grid !important;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -152,33 +187,23 @@ img { max-width: 100%; height: auto; }
 }
 
 /* =========================================
-   6. LARGE DESKTOP VIEW (Min-Width: 1200px)
+   7. LARGE DESKTOP (Min-Width: 1200px)
    ========================================= */
 @media screen and (min-width: 1200px) {
-    /* 1. FINAL 4x2 HERO GRID */
     .hero-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr; /* 4 columns */
-        grid-template-rows: auto auto; /* 2 rows */
-        gap: 50px 30px; 
-        align-items: flex-start;
-        padding-bottom: 80px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 50px 30px; align-items: flex-start; padding-bottom: 80px;
         width: 100%; max-width: 1400px; margin: 0 auto; 
     }
-
-    /* Grid Areas */
     .hero-text { grid-column: 1 / span 3; grid-row: 1 / 2; padding-right: 20px; }
     .hero-image-container { grid-column: 4 / 5; grid-row: 1 / 3; align-items: flex-end; justify-content: flex-start; padding-top: 0; height: 100%; }
     
     .certificate-frame {
-        grid-column: 1 / span 2; grid-row: 2 / 3;
-        width: 100%; max-width: 500px; margin: 0; position: relative; transform: none;
+        grid-column: 1 / span 2; grid-row: 2 / 3; width: 100%; max-width: 500px; margin: 0; position: relative; transform: none;
         animation: float-cert 7s ease-in-out infinite !important;
     }
-    
-    .cta-value-box-wrapper { 
-        grid-column: 3 / 5; grid-row: 2 / 3; width: 100%; padding-left: 20px; 
-    }
-    
+    .cta-value-box-wrapper { grid-column: 3 / 5; grid-row: 2 / 3; width: 100%; padding-left: 20px; }
     .profile-card-container { position: relative; width: 100%; max-width: 350px; }
 }
