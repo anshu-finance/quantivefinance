@@ -353,3 +353,18 @@ img { max-width: 100%; height: auto; }
     .badge-1 { right: -10px; }
     .badge-2 { left: -10px; }
 }
+
+/* --- New Badge Position for NISM Certificate --- */
+
+.badge-3 {
+    top: 55%; 
+    right: -50px; /* Right Side */
+    transform: rotate(5deg); /* Certification Frame Tilt */
+    animation: float-badge-3 6s ease-in-out infinite;
+}
+
+/* NISM-Specific Animation */
+@keyframes float-badge-3 {
+    0%, 100% { transform: translate(0, 0) rotate(5deg); }
+    50% { transform: translate(-15px, 10px) rotate(3deg); }
+}
