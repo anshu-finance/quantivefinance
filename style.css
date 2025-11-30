@@ -48,9 +48,14 @@ header {
 /* Navigation Links & Dropdown */
 .nav-links { display: flex; gap: 30px; align-items: center; list-style: none; }
 .nav-links a { color: var(--navy); font-weight: 500; text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
-.dropdown-menu { 
-    position: absolute; top: 100%; left: 0; background: white; width: 240px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 8px; 
-    opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; padding: 10px 0; border: 1px solid #f1f5f9;
+.dropdown-menu {
+    position: absolute;
+    top: 100%; 
+    right: 0; /* <--- NEW: Anchor to the right edge of the button's container */
+    left: auto; /* <--- NEW: Remove conflict from left alignment */
+    background: white; width: 240px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 8px; 
+    opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; 
+    padding: 10px 0; border: 1px solid #f1f5f9;
 }
 .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
 
@@ -191,3 +196,4 @@ img { max-width: 100%; height: auto; }
     /* Adjustments for floating elements */
     .profile-card-container { position: relative; width: 100%; max-width: 350px; }
 }
+
