@@ -236,3 +236,31 @@ img { max-width: 100%; height: auto; }
         max-width: 350px;
     }
 }
+
+/* =========================================
+   DESKTOP GRID RE-ASSERTION (Fixes stacking on PC)
+   ========================================= */
+
+/* Ensure grid layout is applied for screens wider than 900px, 
+   overriding any global flex/stacking rules. */
+@media screen and (min-width: 901px) {
+    /* 1. Reset Stacking for all content grids */
+    .hero-grid, 
+    .about-grid, 
+    .category-grid, 
+    .reports-grid {
+        display: grid !important; /* Force Grid Display */
+        flex-direction: initial !important; /* Undo flex stacking */
+        gap: 30px; /* Re-apply original gap */
+    }
+    
+    /* 2. Re-apply the responsive grid columns */
+    .category-grid, .reports-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    
+    /* 3. Ensure Hero Grid's 2X2/4X2 structure is maintained on large screens */
+    .hero-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr; /* 4-column structure maintained */
+    }
+}
