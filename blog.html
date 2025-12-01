@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Quantive</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">QUANTIVE<span style="color: #2563eb;">.</span></a>
+            <div class="hamburger">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="projects.html" style="cursor: pointer;">Projects ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="equity-reports.html">Equity Research Reports</a></li>
+                        <li><a href="mf-analysis.html">Mutual Fund Analysis</a></li>
+                        <li><a href="ipo-analysis.html">IPO Analysis Reports</a></li>
+                        <li><a href="one-page-profiles.html">One-Page Profiles</a></li>
+                    </ul>
+                </li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="blog.html">Blogs</a></li>
+                <li><a href="contact.html" class="btn-nav">Get In Touch</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="section-padding" style="padding-top: 150px;">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">Market Insights</h2>
+                <div class="line"></div>
+                <p>Breaking down complex financial concepts into simple, actionable insights.</p>
+            </div>
+
+            <div class="category-grid">
+                
+                <div class="project-card fade-in-up delay-1" style="position: relative; padding: 0; overflow: hidden;">
+                    
+                    <div style="height: 220px; overflow: hidden; position: relative;">
+                        
+                        <img src="blog-images/tvm-hero.jpg" alt="Time Value of Money" style="width: 100%; height: 100%; object-fit: cover; transition: 0.3s;">
+                        
+                        <button onclick="shareBlog('https://anshu-finance.github.io/quantivefinance/tvm-blog.html', 'Time Value of Money - Quantive Blog')" 
+                           title="Share this blog"
+                           style="position: absolute; top: 15px; right: 15px; background: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); border: none; cursor: pointer; z-index: 10; transition: transform 0.2s;">
+                           
+                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                               <circle cx="18" cy="5" r="3"></circle>
+                               <circle cx="6" cy="12" r="3"></circle>
+                               <circle cx="18" cy="19" r="3"></circle>
+                               <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                               <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                           </svg>
+                        </button>
+                    </div>
+
+                    <a href="tvm-blog.html" style="text-decoration: none; display: block; padding: 25px;">
+                        <div class="card-status">Financial Concepts</div>
+                        <h3 style="margin-top: 10px;">Time Value of Money: The Simplest Explanation Ever</h3>
+                        <p class="project-desc">Why is ₹1,000 today worth more than ₹1,000 next year? A deep dive into Inflation, Opportunity Cost, and compounding.</p>
+                        <span class="card-link">Read Article &rarr;</span>
+                    </a>
+                </div>
+
+                <div class="project-card fade-in-up delay-2" style="opacity: 0.7; padding: 35px;">
+                    <div style="height: 200px; background: #f1f5f9; border-radius: 8px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 2rem;">🔜</span>
+                    </div>
+                    <h3>More Coming Soon</h3>
+                    <p>Stay tuned for articles on DCF Valuation and Market Trends.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>
+
+
